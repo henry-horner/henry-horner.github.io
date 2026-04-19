@@ -1,0 +1,193 @@
+---
+title: Lab One -- Installing R, Positron, and tinytex # Title of the document
+
+# Bibliography Details
+bibliography: Lab1References.bib  # Name of bib file in the same folder 
+bibliographystyle: apa                   # Bibliography style
+
+execute:
+  warning: false
+  message: false
+
+# Below will do html by default. To render the entire project
+# Use the following code:
+# quarto::quarto_render("[FILENAME].qmd")
+
+format:
+  html: 
+    number-sections: TRUE
+    code-fold: TRUE
+    code-line-numbers: TRUE
+    cap-location: top 
+  pdf:
+    documentclass: article
+    number-sections: TRUE
+    reference-section-title: "References" 
+    code-line-numbers: TRUE
+    cap-location: top 
+    include-in-header:
+      - text: |
+          \usepackage{amsmath}
+          \usepackage[dvipsnames]{xcolor}
+          \usepackage[shortlabels]{enumitem}
+          \usepackage{parskip}
+          \usepackage{hyperref}
+          \usepackage{geometry}
+          \usepackage{float}
+    geometry:
+      - top=0.75in
+      - left=0.75in
+      - bottom=0.75in
+      - right=0.75in
+format-links: [pdf]
+---
+
+```{r}
+#| echo: false
+
+default_chunk_hook  <- knitr::knit_hooks$get("chunk")
+
+latex_font_size <- c("Huge", "huge", "LARGE", "Large", 
+                     "large", "normalsize", "small", 
+                     "footnotesize", "scriptsize", "tiny")
+
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- default_chunk_hook(x, options)
+  if(options$size %in% latex_font_size) {
+    paste0("\n \\", options$size, "\n\n", 
+      x, 
+      "\n\n \\normalsize"
+    )
+  } else {
+    x
+  }
+})
+
+```
+
+```{r}
+#| label: load-packages
+#| include: false
+library(tidyverse)
+library(palmerpenguins)
+```
+
+# Install Software
+
+-   [Install R](https://cran.r-project.org/).
+-   [Install Positron](https://positron.posit.co/download.html).
+-   [Install tinytex](https://yihui.org/tinytex/).
+
+# Set Up GitHub
+
+-   [Sign Up for GitHub](https://github.com/).
+-   Sign Up for [Our GitHub Classroom](https://classroom.github.com/classrooms/156721198-colgateuniversitycipolli-sp2026-math240).
+-   Pull the GitHub Repo for Lab One [here](https://classroom.github.com/a/8jPlfX90).
+
+# Compile the Lab Template
+
+-   Compile the Lab One template as an html file (default).
+-   Use the commented code to compile the Lab One template as a pdf file.
+
+# Learn to Use Quarto and R
+
+-   Recreate this section in your **Lab1WriteUp.qmd** file.
+
+## Bold, Italics, Underline
+
+**This is bold text**
+
+*This is italicized text*
+
+<u>This is underlined text</u>
+
+## Lists and Enumerated Lists
+
+-   This is item one
+    -   This is item a
+    -   This is item b
+-   This is item two
+-   This is item three
+    -   This is item c
+    -   This is item d
+    -   This is item e
+-   This is item four
+
+1.  This is item one
+    a.  This is item a
+    b.  This is item b
+    c.  This is item c
+2.  This is item two
+3.  This is item three
+4.  This is item four
+
+## Math
+
+The quadratic formula
+\begin{align*}
+x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.
+\end{align*}
+It is helpful for solving equations like
+\begin{align*}
+x^2+2x-13=0.
+\end{align*}
+Using $a=1,b=2,c=-13,$ we find solutions using the quadratic formula.
+\begin{align*}
+x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a}\\
+&= \frac{-(2) \pm \sqrt{(2)^2-4(1)-13}}{2(1)}\\
+&= \frac{-2 \pm \sqrt{56}}{2}\\
+&= \frac{-2}{2} \pm \frac{\sqrt{56}}{2}\\
+&= \frac{-2}{2} \pm \sqrt{\frac{56}{4}}\\
+&= -1 \pm \sqrt{14}\\
+&= -4.741657 \text{ or } 2.741657
+\end{align*}
+
+## Figures
+
+We can *show* we've found the correct answer by plotting the line and the points (see @fig-one-quadratic).
+```{r}
+#| label: fig-one-quadratic
+#| fig-cap: "Graph of the quadratic."
+#| fig-width: 5
+#| fig-height: 3
+#| scale: "80%"
+#| fig-align: "center"
+#| size: scriptsize 
+dat <- tibble(x=seq(-6, 6, length.out=1000))|>
+mutate(y = x^2 + 2*x -13)
+
+ggplot(data=dat)+
+geom_line(aes(x=x, y=y))+
+geom_hline(yintercept=0, alpha=0.50)+
+geom_vline(xintercept=0, alpha=0.50)+
+theme_bw()+
+labs(x="x", y="y")+
+annotate("point", x=-1-sqrt(14), y=0, color="red")+
+annotate("point", x=-1+sqrt(14), y=0, color="red")
+```
+
+## Tables
+
+Note, we can pick points to show intermediate value theorem, noting that our function is continuous. For example, in @tbl-points, we can see there must be a root between $x = -5$ and $x = 0$ and another between $x=0$ and $x=5$.
+```{r}
+#| label: tbl-points
+#| tbl-cap: "Table of values of the quadratic."
+#| tbl-align: "center"
+#| size: scriptsize
+tibble(x = c(-5, -1-sqrt(14), 0, -1+sqrt(14), 5)) |>
+mutate(y = x^2 + 2*x -13)|>
+knitr::kable(digits=4)
+```
+
+## Citations
+
+Above, I used the `tidyverse` package [@tidyverse] to create @fig-one-quadratic and @tbl-points. Additionally, I used the `knitr` package [@knitr] to nicely format the table.
+
+Note that you can ask for citations for **R** packages using the **citation()** function.
+
+## Delivery
+
+Ensure to render the full project using the following code, so the PDF link will work and a .pdf file will be created.
+
+
+## References

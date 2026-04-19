@@ -1,0 +1,33 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Port"
+  sidebar:
+    style: "docked"
+    search: false
+    contents:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - Lab-1-First-Document/Lab1WriteUp.qmd
+      - Lab-2-Libraries-and-Objects/Lab2WriteUp.qmd
+      - Lab-3-Matrices-and-Dataframes/Lab3WriteUp.qmd
+      - Lab-4-Coding-Structures/Lab4WriteUp.qmd
+      - Lab-5-6-Data-Wrangling/Lab5WriteUp.qmd
+      - Lab-8-Probability/Lab8WriteUp.qmd
+      - Lab-10-Point-Estimation/Lab10WriteUp.qmd
+      - Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.qmd
+      
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+
