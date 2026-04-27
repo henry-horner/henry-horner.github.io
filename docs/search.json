@@ -74,7 +74,7 @@
     "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-a",
     "title": "Lab Two – Basic Tasks in R",
     "section": "1.1 Part a",
-    "text": "1.1 Part a\nInstall the esquisse package for R. Report the code below, ensuring to set the eval option to false, using “#| eval: false”, so that we don’t install the package every time you compile your Quarto document.\nSolution:\n\n\ninstall.packages(\"esquisse\")",
+    "text": "1.1 Part a\nInstall the esquisse package for R. Report the code below, ensuring to set the eval option to false, using “#| eval: false”, so that we don’t install the package every time you compile your Quarto document.\nSolution: We use install:packages() on equisse and use eval: false to ensure it wont be installed everytime.\n\n\ninstall.packages(\"esquisse\")",
     "crumbs": [
       "Lab Two -- Basic Tasks in R"
     ]
@@ -104,7 +104,7 @@
     "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-d",
     "title": "Lab Two – Basic Tasks in R",
     "section": "1.4 Part d",
-    "text": "1.4 Part d\nIs a demo or vignette available for the esquisse package for R? Report the code below, ensuring to set the eval option to false, using “#| eval: false”, so that the you don’t get errors when you compile your Quarto document.\nSolution:\n\n\ndemo(\"esquisse\")\nvignette(\"esquisse\")",
+    "text": "1.4 Part d\nIs a demo or vignette available for the esquisse package for R? Report the code below, ensuring to set the eval option to false, using “#| eval: false”, so that the you don’t get errors when you compile your Quarto document.\nSolution: No there is not a demo() or vignette() for esquisse\n\n\ndemo(\"esquisse\")\nvignette(\"esquisse\")",
     "crumbs": [
       "Lab Two -- Basic Tasks in R"
     ]
@@ -114,7 +114,7 @@
     "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-e",
     "title": "Lab Two – Basic Tasks in R",
     "section": "1.5 Part e",
-    "text": "1.5 Part e\nAdd the BibTeX citation for esquisse package for R to your .bib file and cite it in a sentence describing what the package does below. Note you can reference a citation named esquisse using “[@esquisse]”. \nSolution: @esquisse is a package that gives us the ability to create “ggplot2” figures interactively using available data frames.",
+    "text": "1.5 Part e\nAdd the BibTeX citation for esquisse package for R to your .bib file and cite it in a sentence describing what the package does below. Note you can reference a citation named esquisse using “[@esquisse]”. \nSolution: esquisse is a package that gives us the ability to create “ggplot2” figures interactively using available data frames.*",
     "crumbs": [
       "Lab Two -- Basic Tasks in R"
     ]

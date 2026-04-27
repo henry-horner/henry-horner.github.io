@@ -79,6 +79,7 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 Install the `esquisse` package for `R`. Report the code below, ensuring to set the `eval` option to `false`, using "\#| eval: false", so that we don't install the package every time you compile your Quarto document.
 
 **Solution:**
+We use **`install:packages()`** on `equisse` and use `eval: false` to ensure it wont be installed everytime.
 ```{r}
 #| size: "scriptsize"
 #| code-fold: FALSE
@@ -111,6 +112,7 @@ help("esquisse")
 Is a demo or vignette available for the  `esquisse` package for `R`? Report the code below, ensuring to set the `eval` option to `false`, using "\#| eval: false", so that the you don't get errors when you compile your Quarto document.
 
 **Solution:**
+No there is not a `demo()` or `vignette()` for `esquisse`
 ```{r}
 #| size: "scriptsize"
 #| code-fold: FALSE
@@ -125,7 +127,7 @@ Add the BibTeX citation for `esquisse` package for `R` to your `.bib` file and c
 the command instead of actually citing. -->
 
 **Solution:**
-*@\hspace{-0em}esquisse is a package that gives us the ability to create "ggplot2" figures interactively using available data frames.*
+`esquisse` is a package that gives us the ability to create "ggplot2" figures interactively using available data frames.*
 
 ## Part f
 Run `esquisser()` in your console -- not in a chunk of `R` code in your Quarto document. 
