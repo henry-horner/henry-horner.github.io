@@ -321,7 +321,7 @@ window.Quarto = {
 <section id="learn-to-use-quarto-and-r" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Learn to Use Quarto and R</h1>
 <ul>
-<li>Recreate this section in your <strong>Lab1WriteUp.qmd</strong> file.</li>
+<li>Recreate this section in your <strong><code>Lab1WriteUp.qmd</code></strong> file.</li>
 </ul>
 <section id="bold-italics-underline" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="bold-italics-underline"><span class="header-section-number">4.1</span> Bold, Italics, Underline</h2>
@@ -365,12 +365,12 @@ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.
 \end{align*}\]</span> It is helpful for solving equations like <span class="math display">\[\begin{align*}
 x^2+2x-13=0.
 \end{align*}\]</span> Using <span class="math inline">\(a=1,b=2,c=-13,\)</span> we find solutions using the quadratic formula. <span class="math display">\[\begin{align*}
-x &amp;= \frac{-b \pm \sqrt{b^2-4ac}}{2a}\\
-&amp;= \frac{-(2) \pm \sqrt{(2)^2-4(1)-13}}{2(1)}\\
-&amp;= \frac{-2 \pm \sqrt{56}}{2}\\
-&amp;= \frac{-2}{2} \pm \frac{\sqrt{56}}{2}\\
-&amp;= \frac{-2}{2} \pm \sqrt{\frac{56}{4}}\\
-&amp;= -1 \pm \sqrt{14}\\
+x &amp;= \frac{-b \pm \sqrt{b^2-4ac}}{2a} \tag{Definition} \\
+&amp;= \frac{-(2) \pm \sqrt{(2)^2-4(1)-13}}{2(1)} \tag{Definition} \\
+&amp;= \frac{-2 \pm \sqrt{56}}{2} \tag{Symplifying} \\
+&amp;= \frac{-2}{2} \pm \frac{\sqrt{56}}{2} \tag{Rewriting} \\
+&amp;= \frac{-2}{2} \pm \sqrt{\frac{56}{4} \tag{Rewriting} }\\
+&amp;= -1 \pm \sqrt{14} \tag{Symplifying} \\
 &amp;= -4.741657 \text{ or } 2.741657
 \end{align*}\]</span></p>
 </section>
@@ -382,16 +382,16 @@ x &amp;= \frac{-b \pm \sqrt{b^2-4ac}}{2a}\\
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">6</span>, <span class="dv">6</span>, <span class="at">length.out=</span><span class="dv">1000</span>))<span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">mutate</span>(<span class="at">y =</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>x <span class="sc">-</span><span class="dv">13</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>              <span class="fu">mutate</span>(<span class="at">y =</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>x <span class="sc">-</span><span class="dv">13</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dat)<span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y))<span class="sc">+</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>, <span class="at">alpha=</span><span class="fl">0.50</span>)<span class="sc">+</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>, <span class="at">alpha=</span><span class="fl">0.50</span>)<span class="sc">+</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">labs</span>(<span class="at">x=</span><span class="st">"x"</span>, <span class="at">y=</span><span class="st">"y"</span>)<span class="sc">+</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="fu">annotate</span>(<span class="st">"point"</span>, <span class="at">x=</span><span class="sc">-</span><span class="dv">1</span><span class="sc">-</span><span class="fu">sqrt</span>(<span class="dv">14</span>), <span class="at">y=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="fu">annotate</span>(<span class="st">"point"</span>, <span class="at">x=</span><span class="sc">-</span><span class="dv">1</span><span class="sc">+</span><span class="fu">sqrt</span>(<span class="dv">14</span>), <span class="at">y=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5"></a>      <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>x, <span class="at">y=</span>y))<span class="sc">+</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>      <span class="fu">geom_hline</span>(<span class="at">yintercept=</span><span class="dv">0</span>, <span class="at">alpha=</span><span class="fl">0.50</span>)<span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>      <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">0</span>, <span class="at">alpha=</span><span class="fl">0.50</span>)<span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>      <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>      <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"x"</span>, <span class="at">y=</span><span class="st">"y"</span>)<span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>      <span class="fu">annotate</span>(<span class="st">"point"</span>, <span class="at">x=</span><span class="sc">-</span><span class="dv">1</span><span class="sc">-</span><span class="fu">sqrt</span>(<span class="dv">14</span>), <span class="at">y=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>      <span class="fu">annotate</span>(<span class="st">"point"</span>, <span class="at">x=</span><span class="sc">-</span><span class="dv">1</span><span class="sc">+</span><span class="fu">sqrt</span>(<span class="dv">14</span>), <span class="at">y=</span><span class="dv">0</span>, <span class="at">color=</span><span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div id="fig-one-quadratic" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
@@ -416,8 +416,8 @@ Figure&nbsp;1: Graph of the quadratic.
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="sc">-</span><span class="dv">1</span><span class="sc">-</span><span class="fu">sqrt</span>(<span class="dv">14</span>), <span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span><span class="sc">+</span><span class="fu">sqrt</span>(<span class="dv">14</span>), <span class="dv">5</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">mutate</span>(<span class="at">y =</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>x <span class="sc">-</span><span class="dv">13</span>)<span class="sc">|&gt;</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href="#cb2-2"></a>      <span class="fu">mutate</span>(<span class="at">y =</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>x <span class="sc">-</span><span class="dv">13</span>)<span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>      knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-points" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -466,7 +466,7 @@ Table&nbsp;1: Table of values of the quadratic.
 <section id="citations" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="citations"><span class="header-section-number">4.6</span> Citations</h2>
 <p>Above, I used the <code>tidyverse</code> package <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> to create <a href="#fig-one-quadratic" class="quarto-xref">Figure&nbsp;1</a> and <a href="#tbl-points" class="quarto-xref">Table&nbsp;1</a>. Additionally, I used the <code>knitr</code> package <span class="citation" data-cites="knitr">(<a href="#ref-knitr" role="doc-biblioref">Xie 2025</a>)</span> to nicely format the table.</p>
-<p>Note that you can ask for citations for <strong>R</strong> packages using the <strong>citation()</strong> function.</p>
+<p>Note that you can ask for citations for <strong><code>R</code></strong> packages using the <strong><code>citation()</code></strong> function.</p>
 </section>
 <section id="delivery" class="level2" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="delivery"><span class="header-section-number">4.7</span> Delivery</h2>

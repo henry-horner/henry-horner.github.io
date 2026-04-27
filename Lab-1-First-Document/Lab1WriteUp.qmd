@@ -91,7 +91,7 @@ library(palmerpenguins)
 
 # Learn to Use Quarto and R
 
--   Recreate this section in your **Lab1WriteUp.qmd** file.
+-   Recreate this section in your **`Lab1WriteUp.qmd`** file.
 
 ## Bold, Italics, Underline
 
@@ -133,12 +133,12 @@ x^2+2x-13=0.
 \end{align*}
 Using $a=1,b=2,c=-13,$ we find solutions using the quadratic formula.
 \begin{align*}
-x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a}\\
-&= \frac{-(2) \pm \sqrt{(2)^2-4(1)-13}}{2(1)}\\
-&= \frac{-2 \pm \sqrt{56}}{2}\\
-&= \frac{-2}{2} \pm \frac{\sqrt{56}}{2}\\
-&= \frac{-2}{2} \pm \sqrt{\frac{56}{4}}\\
-&= -1 \pm \sqrt{14}\\
+x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a} \tag{Definition} \\
+&= \frac{-(2) \pm \sqrt{(2)^2-4(1)-13}}{2(1)} \tag{Definition} \\
+&= \frac{-2 \pm \sqrt{56}}{2} \tag{Symplifying} \\
+&= \frac{-2}{2} \pm \frac{\sqrt{56}}{2} \tag{Rewriting} \\
+&= \frac{-2}{2} \pm \sqrt{\frac{56}{4} \tag{Rewriting} }\\
+&= -1 \pm \sqrt{14} \tag{Symplifying} \\
 &= -4.741657 \text{ or } 2.741657
 \end{align*}
 
@@ -154,16 +154,16 @@ We can *show* we've found the correct answer by plotting the line and the points
 #| fig-align: "center"
 #| size: scriptsize 
 dat <- tibble(x=seq(-6, 6, length.out=1000))|>
-mutate(y = x^2 + 2*x -13)
+              mutate(y = x^2 + 2*x -13)
 
 ggplot(data=dat)+
-geom_line(aes(x=x, y=y))+
-geom_hline(yintercept=0, alpha=0.50)+
-geom_vline(xintercept=0, alpha=0.50)+
-theme_bw()+
-labs(x="x", y="y")+
-annotate("point", x=-1-sqrt(14), y=0, color="red")+
-annotate("point", x=-1+sqrt(14), y=0, color="red")
+      geom_line(aes(x=x, y=y))+
+      geom_hline(yintercept=0, alpha=0.50)+
+      geom_vline(xintercept=0, alpha=0.50)+
+      theme_bw()+
+      labs(x="x", y="y")+
+      annotate("point", x=-1-sqrt(14), y=0, color="red")+
+      annotate("point", x=-1+sqrt(14), y=0, color="red")
 ```
 
 ## Tables
@@ -175,15 +175,15 @@ Note, we can pick points to show intermediate value theorem, noting that our fun
 #| tbl-align: "center"
 #| size: scriptsize
 tibble(x = c(-5, -1-sqrt(14), 0, -1+sqrt(14), 5)) |>
-mutate(y = x^2 + 2*x -13)|>
-knitr::kable(digits=4)
+      mutate(y = x^2 + 2*x -13)|>
+      knitr::kable(digits=4)
 ```
 
 ## Citations
 
 Above, I used the `tidyverse` package [@tidyverse] to create @fig-one-quadratic and @tbl-points. Additionally, I used the `knitr` package [@knitr] to nicely format the table.
 
-Note that you can ask for citations for **R** packages using the **citation()** function.
+Note that you can ask for citations for **`R`** packages using the **`citation()`** function.
 
 ## Delivery
 

@@ -24,7 +24,7 @@
     "href": "Lab-1-First-Document/Lab1WriteUp.html#math",
     "title": "Lab One – Installing R, Positron, and tinytex",
     "section": "4.3 Math",
-    "text": "4.3 Math\nThe quadratic formula \\[\\begin{align*}\nx = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}.\n\\end{align*}\\] It is helpful for solving equations like \\[\\begin{align*}\nx^2+2x-13=0.\n\\end{align*}\\] Using \\(a=1,b=2,c=-13,\\) we find solutions using the quadratic formula. \\[\\begin{align*}\nx &= \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\\\\n&= \\frac{-(2) \\pm \\sqrt{(2)^2-4(1)-13}}{2(1)}\\\\\n&= \\frac{-2 \\pm \\sqrt{56}}{2}\\\\\n&= \\frac{-2}{2} \\pm \\frac{\\sqrt{56}}{2}\\\\\n&= \\frac{-2}{2} \\pm \\sqrt{\\frac{56}{4}}\\\\\n&= -1 \\pm \\sqrt{14}\\\\\n&= -4.741657 \\text{ or } 2.741657\n\\end{align*}\\]",
+    "text": "4.3 Math\nThe quadratic formula \\[\\begin{align*}\nx = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}.\n\\end{align*}\\] It is helpful for solving equations like \\[\\begin{align*}\nx^2+2x-13=0.\n\\end{align*}\\] Using \\(a=1,b=2,c=-13,\\) we find solutions using the quadratic formula. \\[\\begin{align*}\nx &= \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} \\tag{Definition} \\\\\n&= \\frac{-(2) \\pm \\sqrt{(2)^2-4(1)-13}}{2(1)} \\tag{Definition} \\\\\n&= \\frac{-2 \\pm \\sqrt{56}}{2} \\tag{Symplifying} \\\\\n&= \\frac{-2}{2} \\pm \\frac{\\sqrt{56}}{2} \\tag{Rewriting} \\\\\n&= \\frac{-2}{2} \\pm \\sqrt{\\frac{56}{4} \\tag{Rewriting} }\\\\\n&= -1 \\pm \\sqrt{14} \\tag{Symplifying} \\\\\n&= -4.741657 \\text{ or } 2.741657\n\\end{align*}\\]",
     "crumbs": [
       "Lab One -- Installing R, Positron, and tinytex"
     ]
@@ -34,7 +34,7 @@
     "href": "Lab-1-First-Document/Lab1WriteUp.html#figures",
     "title": "Lab One – Installing R, Positron, and tinytex",
     "section": "4.4 Figures",
-    "text": "4.4 Figures\nWe can show we’ve found the correct answer by plotting the line and the points (see Figure 1).\n\n\n\nCode\ndat &lt;- tibble(x=seq(-6, 6, length.out=1000))|&gt;\nmutate(y = x^2 + 2*x -13)\n\nggplot(data=dat)+\ngeom_line(aes(x=x, y=y))+\ngeom_hline(yintercept=0, alpha=0.50)+\ngeom_vline(xintercept=0, alpha=0.50)+\ntheme_bw()+\nlabs(x=\"x\", y=\"y\")+\nannotate(\"point\", x=-1-sqrt(14), y=0, color=\"red\")+\nannotate(\"point\", x=-1+sqrt(14), y=0, color=\"red\")\n\n\n\n\n\nFigure 1: Graph of the quadratic.",
+    "text": "4.4 Figures\nWe can show we’ve found the correct answer by plotting the line and the points (see Figure 1).\n\n\n\nCode\ndat &lt;- tibble(x=seq(-6, 6, length.out=1000))|&gt;\n              mutate(y = x^2 + 2*x -13)\n\nggplot(data=dat)+\n      geom_line(aes(x=x, y=y))+\n      geom_hline(yintercept=0, alpha=0.50)+\n      geom_vline(xintercept=0, alpha=0.50)+\n      theme_bw()+\n      labs(x=\"x\", y=\"y\")+\n      annotate(\"point\", x=-1-sqrt(14), y=0, color=\"red\")+\n      annotate(\"point\", x=-1+sqrt(14), y=0, color=\"red\")\n\n\n\n\n\nFigure 1: Graph of the quadratic.",
     "crumbs": [
       "Lab One -- Installing R, Positron, and tinytex"
     ]
@@ -44,7 +44,7 @@
     "href": "Lab-1-First-Document/Lab1WriteUp.html#tables",
     "title": "Lab One – Installing R, Positron, and tinytex",
     "section": "4.5 Tables",
-    "text": "4.5 Tables\nNote, we can pick points to show intermediate value theorem, noting that our function is continuous. For example, in Table 1, we can see there must be a root between \\(x = -5\\) and \\(x = 0\\) and another between \\(x=0\\) and \\(x=5\\).\n\n\n\nCode\ntibble(x = c(-5, -1-sqrt(14), 0, -1+sqrt(14), 5)) |&gt;\nmutate(y = x^2 + 2*x -13)|&gt;\nknitr::kable(digits=4)\n\n\n\n\nTable 1: Table of values of the quadratic.\n\n\n\n\n\n\nx\ny\n\n\n\n\n-5.0000\n2\n\n\n-4.7417\n0\n\n\n0.0000\n-13\n\n\n2.7417\n0\n\n\n5.0000\n22",
+    "text": "4.5 Tables\nNote, we can pick points to show intermediate value theorem, noting that our function is continuous. For example, in Table 1, we can see there must be a root between \\(x = -5\\) and \\(x = 0\\) and another between \\(x=0\\) and \\(x=5\\).\n\n\n\nCode\ntibble(x = c(-5, -1-sqrt(14), 0, -1+sqrt(14), 5)) |&gt;\n      mutate(y = x^2 + 2*x -13)|&gt;\n      knitr::kable(digits=4)\n\n\n\n\nTable 1: Table of values of the quadratic.\n\n\n\n\n\n\nx\ny\n\n\n\n\n-5.0000\n2\n\n\n-4.7417\n0\n\n\n0.0000\n-13\n\n\n2.7417\n0\n\n\n5.0000\n22",
     "crumbs": [
       "Lab One -- Installing R, Positron, and tinytex"
     ]
