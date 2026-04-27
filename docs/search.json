@@ -1,0 +1,948 @@
+[
+  {
+    "objectID": "Lab-1-First-Document/Lab1WriteUp.html#bold-italics-underline",
+    "href": "Lab-1-First-Document/Lab1WriteUp.html#bold-italics-underline",
+    "title": "Lab One – Installing R, Positron, and tinytex",
+    "section": "4.1 Bold, Italics, Underline",
+    "text": "4.1 Bold, Italics, Underline\nThis is bold text\nThis is italicized text\nThis is underlined text",
+    "crumbs": [
+      "Lab One -- Installing R, Positron, and tinytex"
+    ]
+  },
+  {
+    "objectID": "Lab-1-First-Document/Lab1WriteUp.html#lists-and-enumerated-lists",
+    "href": "Lab-1-First-Document/Lab1WriteUp.html#lists-and-enumerated-lists",
+    "title": "Lab One – Installing R, Positron, and tinytex",
+    "section": "4.2 Lists and Enumerated Lists",
+    "text": "4.2 Lists and Enumerated Lists\n\nThis is item one\n\nThis is item a\nThis is item b\n\nThis is item two\nThis is item three\n\nThis is item c\nThis is item d\nThis is item e\n\nThis is item four\n\n\nThis is item one\n\nThis is item a\nThis is item b\nThis is item c\n\nThis is item two\nThis is item three\nThis is item four",
+    "crumbs": [
+      "Lab One -- Installing R, Positron, and tinytex"
+    ]
+  },
+  {
+    "objectID": "Lab-1-First-Document/Lab1WriteUp.html#math",
+    "href": "Lab-1-First-Document/Lab1WriteUp.html#math",
+    "title": "Lab One – Installing R, Positron, and tinytex",
+    "section": "4.3 Math",
+    "text": "4.3 Math\nThe quadratic formula \\[\\begin{align*}\nx = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}.\n\\end{align*}\\] It is helpful for solving equations like \\[\\begin{align*}\nx^2+2x-13=0.\n\\end{align*}\\] Using \\(a=1,b=2,c=-13,\\) we find solutions using the quadratic formula. \\[\\begin{align*}\nx &= \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}\\\\\n&= \\frac{-(2) \\pm \\sqrt{(2)^2-4(1)-13}}{2(1)}\\\\\n&= \\frac{-2 \\pm \\sqrt{56}}{2}\\\\\n&= \\frac{-2}{2} \\pm \\frac{\\sqrt{56}}{2}\\\\\n&= \\frac{-2}{2} \\pm \\sqrt{\\frac{56}{4}}\\\\\n&= -1 \\pm \\sqrt{14}\\\\\n&= -4.741657 \\text{ or } 2.741657\n\\end{align*}\\]",
+    "crumbs": [
+      "Lab One -- Installing R, Positron, and tinytex"
+    ]
+  },
+  {
+    "objectID": "Lab-1-First-Document/Lab1WriteUp.html#figures",
+    "href": "Lab-1-First-Document/Lab1WriteUp.html#figures",
+    "title": "Lab One – Installing R, Positron, and tinytex",
+    "section": "4.4 Figures",
+    "text": "4.4 Figures\nWe can show we’ve found the correct answer by plotting the line and the points (see Figure 1).\n\n\n\nCode\ndat &lt;- tibble(x=seq(-6, 6, length.out=1000))|&gt;\nmutate(y = x^2 + 2*x -13)\n\nggplot(data=dat)+\ngeom_line(aes(x=x, y=y))+\ngeom_hline(yintercept=0, alpha=0.50)+\ngeom_vline(xintercept=0, alpha=0.50)+\ntheme_bw()+\nlabs(x=\"x\", y=\"y\")+\nannotate(\"point\", x=-1-sqrt(14), y=0, color=\"red\")+\nannotate(\"point\", x=-1+sqrt(14), y=0, color=\"red\")\n\n\n\n\n\nFigure 1: Graph of the quadratic.",
+    "crumbs": [
+      "Lab One -- Installing R, Positron, and tinytex"
+    ]
+  },
+  {
+    "objectID": "Lab-1-First-Document/Lab1WriteUp.html#tables",
+    "href": "Lab-1-First-Document/Lab1WriteUp.html#tables",
+    "title": "Lab One – Installing R, Positron, and tinytex",
+    "section": "4.5 Tables",
+    "text": "4.5 Tables\nNote, we can pick points to show intermediate value theorem, noting that our function is continuous. For example, in Table 1, we can see there must be a root between \\(x = -5\\) and \\(x = 0\\) and another between \\(x=0\\) and \\(x=5\\).\n\n\n\nCode\ntibble(x = c(-5, -1-sqrt(14), 0, -1+sqrt(14), 5)) |&gt;\nmutate(y = x^2 + 2*x -13)|&gt;\nknitr::kable(digits=4)\n\n\n\n\nTable 1: Table of values of the quadratic.\n\n\n\n\n\n\nx\ny\n\n\n\n\n-5.0000\n2\n\n\n-4.7417\n0\n\n\n0.0000\n-13\n\n\n2.7417\n0\n\n\n5.0000\n22",
+    "crumbs": [
+      "Lab One -- Installing R, Positron, and tinytex"
+    ]
+  },
+  {
+    "objectID": "Lab-1-First-Document/Lab1WriteUp.html#citations",
+    "href": "Lab-1-First-Document/Lab1WriteUp.html#citations",
+    "title": "Lab One – Installing R, Positron, and tinytex",
+    "section": "4.6 Citations",
+    "text": "4.6 Citations\nAbove, I used the tidyverse package (Wickham et al. 2019) to create Figure 1 and Table 1. Additionally, I used the knitr package (Xie 2025) to nicely format the table.\nNote that you can ask for citations for R packages using the citation() function.",
+    "crumbs": [
+      "Lab One -- Installing R, Positron, and tinytex"
+    ]
+  },
+  {
+    "objectID": "Lab-1-First-Document/Lab1WriteUp.html#delivery",
+    "href": "Lab-1-First-Document/Lab1WriteUp.html#delivery",
+    "title": "Lab One – Installing R, Positron, and tinytex",
+    "section": "4.7 Delivery",
+    "text": "4.7 Delivery\nEnsure to render the full project using the following code, so the PDF link will work and a .pdf file will be created.",
+    "crumbs": [
+      "Lab One -- Installing R, Positron, and tinytex"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-a",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-a",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "1.1 Part a",
+    "text": "1.1 Part a\nInstall the esquisse package for R. Report the code below, ensuring to set the eval option to false, using “#| eval: false”, so that we don’t install the package every time you compile your Quarto document.\nSolution:\n\n\ninstall.packages(\"esquisse\")",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-b",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-b",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "1.2 Part b",
+    "text": "1.2 Part b\nLoad the esquisse package for R. Report the code below. It does not matter whether you set “#| eval: false” because loading the package does not add a lot of time. Note you will not evaluate any code that uses the esquisse package, so there is no need to load it as you compile your Quarto document.\nSolution:\n\n\nlibrary(\"esquisse\")",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-c",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-c",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "1.3 Part c",
+    "text": "1.3 Part c\nHow can you ask for help about the esquisse package for R? Report the code below, ensuring to set the eval option to false, using “#| eval: false”, so that the help document isn’t loaded every time you compile your Quarto document.\nSolution:\n\n\nhelp(\"esquisse\")",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-d",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-d",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "1.4 Part d",
+    "text": "1.4 Part d\nIs a demo or vignette available for the esquisse package for R? Report the code below, ensuring to set the eval option to false, using “#| eval: false”, so that the you don’t get errors when you compile your Quarto document.\nSolution:\n\n\ndemo(\"esquisse\")\nvignette(\"esquisse\")",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-e",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-e",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "1.5 Part e",
+    "text": "1.5 Part e\nAdd the BibTeX citation for esquisse package for R to your .bib file and cite it in a sentence describing what the package does below. Note you can reference a citation named esquisse using “[@esquisse]”. \nSolution: @esquisse is a package that gives us the ability to create “ggplot2” figures interactively using available data frames.",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-f",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-f",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "1.6 Part f",
+    "text": "1.6 Part f\nRun esquisser() in your console – not in a chunk of R code in your Quarto document.\n\nSelect palmerpenguins from the “Select an environment in which to search:” dropdown. This should automatically select penguins in the “Select a data.frame:” dropdown. Click “Import Data”.\nDrag body_mass_g to the X box and species to the fill box.\nDescribe what you see in words. What can you conclude about Adelie, Chinstrap, and Gentoo penguins based on the resulting plot?\n\nSolution: The Adelie and Chinstrap penguins are lighter in body mass compared to Gentoo which is the heaviest, but Adelie has a larger count.",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-a-1",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-a-1",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "2.1 Part a",
+    "text": "2.1 Part a\nThe Fibonacci Sequence is a recursive formula: \\[F_n = F_{n-1} + F_{n-2}\\] where \\(F_0=0\\) and \\(F_1=1\\).\nCreate a vector of the first 10 Fibonacci numbers.\nSolution:\n\n\n(Fibonacci = c(1, 1, 2, 3, 5, 8, 13, 21, 34, 55))\n\n [1]  1  1  2  3  5  8 13 21 34 55",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-b-1",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-b-1",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "2.2 Part b",
+    "text": "2.2 Part b\nTriangular Numbers are the cumulative sums of natural numbers: \\[F_n = \\frac{n(n+1)}{2}.\\]\nCreate a vector of the first 10 Triangular Numbers.\nSolution:\n\n\n(Triangular = c(1, 3, 6, 10, 15, 21, 28, 36, 45, 55))\n\n [1]  1  3  6 10 15 21 28 36 45 55",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-c-1",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-c-1",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "2.3 Part c",
+    "text": "2.3 Part c\nSuppose I were designing a repeated meausres experiment with three treatment conditions. Each of \\(n=10\\) participants (with ID 1 to 10) will receive all experimental conditions, call them “Control”, “Treatment A”, and “Treatment B”.\nConsider setting up data entry for this experiment.\n\nCreate a vector containing each ID repeated three times, once for each treatment.\nCreate a vector containing each Treatment repeated for each participant ID.\n\nSolution:\n\n\n(IDs = rep(1:10, each = 3))\n\n [1]  1  1  1  2  2  2  3  3  3  4  4  4  5  5  5  6  6  6  7  7  7  8  8  8  9\n[26]  9  9 10 10 10\n\n(Treatments = rep(c(\"Control\", \"Treatment A\", \"Treatment B\"), times = 10))\n\n [1] \"Control\"     \"Treatment A\" \"Treatment B\" \"Control\"     \"Treatment A\"\n [6] \"Treatment B\" \"Control\"     \"Treatment A\" \"Treatment B\" \"Control\"    \n[11] \"Treatment A\" \"Treatment B\" \"Control\"     \"Treatment A\" \"Treatment B\"\n[16] \"Control\"     \"Treatment A\" \"Treatment B\" \"Control\"     \"Treatment A\"\n[21] \"Treatment B\" \"Control\"     \"Treatment A\" \"Treatment B\" \"Control\"    \n[26] \"Treatment A\" \"Treatment B\" \"Control\"     \"Treatment A\" \"Treatment B\"",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-d-1",
+    "href": "Lab-2-Libraries-and-Objects/Lab2WriteUp.html#part-d-1",
+    "title": "Lab Two – Basic Tasks in R",
+    "section": "2.4 Part d",
+    "text": "2.4 Part d\nCreate a vector containing the character “MATH” and the numeric 240. What is the resulting class? Explain why in a sentence.\nSolution:\n\n\n(test = c(\"MATH\", 240))\n\n[1] \"MATH\" \"240\" \n\n\n\nSince there is both a character type and a numeric in the same vector, the vector converts all types inside of it to character since character types override numerics.",
+    "crumbs": [
+      "Lab Two -- Basic Tasks in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "",
+    "text": "Consider the unit square depicted in Figure 1.\nCode\nggplot() +\n  geom_segment(aes(x = 0, xend = 0,\n                   y=0, yend = 1))+\n  geom_segment(aes(x = 0, xend = 1,\n                   y=1, yend = 1))+\n  geom_segment(aes(x = 1, xend = 1,\n                   y=0, yend = 1))+\n  geom_segment(aes(x = 0, xend = 1,\n                   y=0, yend = 0)) +\n  theme_bw() + \n  xlim(-0.5, 1.5)+\n  ylim(-0.5, 1.5)+\n  labs(x = \"x\", \n       y = \"y\")\n\n\n\n\n\nFigure 1: The unit square.\nThe unit square can be defined by two basis vectors \\[\\mathbf{v}_1=\\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} ~~~ \\textrm{and} ~~~ \\mathbf{v}_2=\\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix}.\\] From these vectors, we can compute the corner verticies. \\[\\begin{align*}\n  p_0 & = (0,0) = (x_0, y_0) \\tag{The origin}\\\\\n  p_1 & = v_1 = (x_1, y_1)   \\tag{The first basis vector}\\\\\n  p_2 & = v_1 + v_2 = (x_2, y_2) \\tag{The sum of basis vectors}\\\\\n  p_3 & = v_1 = (x_3, y_3)  \\tag{The second basis vector}\\\\\n\\end{align*}\\] Note that the segments that form the boundary go from \\(p_0\\) to \\(p_1\\) to \\(p_2\\) to \\(p_3\\).\nConsider the matrix \\(M\\) to be the matrix we get from binding the two basis vectors at the column, \\[\\mathbf{M} = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}.\\]",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-a",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-a",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "1.1 Part a",
+    "text": "1.1 Part a\nCreate the matrix A in R. \\[\\mathbf{A} = \\begin{bmatrix} 1 & -7 \\\\ 5 & 9 \\end{bmatrix}\\]\nSolution:\n\n\n(A = matrix(c(1,-7,5,9),2,2,T))\n\n     [,1] [,2]\n[1,]    1   -7\n[2,]    5    9",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-b",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-b",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "1.2 Part b",
+    "text": "1.2 Part b\nCompute the product below in R and store it in an object T. \\[\\mathbf{T} = \\mathbf{A}\\mathbf{M}.\\]\nSolution:\n\n\n(T = A %*% M)\n\n     [,1] [,2]\n[1,]    1   -7\n[2,]    5    9",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-c",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-c",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "1.3 Part c",
+    "text": "1.3 Part c\nCreate basis.vector.1 (first column of T) and basis.vector.2 (second column of T) in R.\nSolution:\n\n\n(basis_vector_1 = T[,1])\n\n[1] 1 5\n\n(basis_vector_2 = T[,2])\n\n[1] -7  9",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-d",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-d",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "1.4 Part d",
+    "text": "1.4 Part d\nCompute the points \\(p_0\\), \\(p_1\\), \\(p_2\\), and \\(p_3\\).\nSolution:\n\n\n(p_0 = c(0,0))\n\n[1] 0 0\n\n(p_1 = basis_vector_1)\n\n[1] 1 5\n\n(p_2 = basis_vector_1 + basis_vector_2)\n\n[1] -6 14\n\n(p_3 = basis_vector_2)\n\n[1] -7  9",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-e",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-e",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "1.5 Part e",
+    "text": "1.5 Part e\nCopy and paste the code for the unit square. Edit the code to draw the segments that form the boundary based on the points in Part d.\nSolution:\n\n\n\nCode\nggplot() +\n  geom_segment(aes(x = p_0[1], xend = p_1[1],\n                   y= p_0[2], yend = p_1[2]))+\n  geom_segment(aes(x = p_1[1], xend = p_2[1],\n                   y= p_1[2], yend = p_2[2]))+\n  geom_segment(aes(x = p_2[1], xend = p_3[1],\n                   y= p_2[2], yend = p_3[2]))+\n  geom_segment(aes(x = p_3[1], xend = p_0[1],\n                   y= p_3[2], yend = p_0[2])) +\n  theme_bw() + \n  xlim(-10, 15)+\n  ylim(-10, 15)+\n  labs(x = \"x\", \n       y = \"y\")\n\n\n\n\n\nFigure 2: The T square.",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-f",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-f",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "1.6 Part f",
+    "text": "1.6 Part f\nInterestingly, the determinant of \\(\\mathbf{A}\\) gives us the area of the shape plotted in Part e. Find the determinant of \\(\\mathbf{A}\\).\nSolution:\n\n\n(determinant_A = det(A))\n\n[1] 44",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-a-1",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-a-1",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "2.1 Part a",
+    "text": "2.1 Part a\nCreate the matrix A in R. \\[\\mathbf{A} = \\begin{bmatrix} 1 & 2 \\\\ 2 & 4 \\end{bmatrix}\\]\nSolution:\n\n\n(A = matrix(c(1,2,2,4),2,2,T))\n\n     [,1] [,2]\n[1,]    1    2\n[2,]    2    4",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-b-1",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-b-1",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "2.2 Part b",
+    "text": "2.2 Part b\nCompute the product below in R and store it in an object T. \\[\\mathbf{T} = \\mathbf{A}\\mathbf{M}.\\]\nSolution:\n\n\n(T = A %*% M)\n\n     [,1] [,2]\n[1,]    1    2\n[2,]    2    4",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-c-1",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-c-1",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "2.3 Part c",
+    "text": "2.3 Part c\nCreate basis.vector.1 (first column of T) and basis.vector.2 (second column of T) in R.\nSolution:\n\n\n(basis_vector_1 = T[,1])\n\n[1] 1 2\n\n(basis_vector_2 = T[,2])\n\n[1] 2 4",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-d-1",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-d-1",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "2.4 Part d",
+    "text": "2.4 Part d\nCompute the points \\(p_0\\), \\(p_1\\), \\(p_2\\), and \\(p_3\\).\n\n\n(p_0 = c(0,0))\n\n[1] 0 0\n\n(p_1 = basis_vector_1)\n\n[1] 1 2\n\n(p_2 = basis_vector_1 + basis_vector_2)\n\n[1] 3 6\n\n(p_3 = basis_vector_2)\n\n[1] 2 4",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-e-1",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-e-1",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "2.5 Part e",
+    "text": "2.5 Part e\nCopy and paste the code for plotting the unit square. Edit the code to draw the segments that form the boundary based on the points in Part d.\nSolution:\n\n\n\nCode\nggplot() +\n  geom_segment(aes(x = p_0[1], xend = p_1[1],\n                   y= p_0[2], yend = p_1[2]))+\n  geom_segment(aes(x = p_1[1], xend = p_2[1],\n                   y= p_1[2], yend = p_2[2]))+\n  geom_segment(aes(x = p_2[1], xend = p_3[1],\n                   y= p_2[2], yend = p_3[2]))+\n  geom_segment(aes(x = p_3[1], xend = p_0[1],\n                   y= p_3[2], yend = p_0[2])) +\n  theme_bw() + \n  xlim(-1, 7)+\n  ylim(-1, 7)+\n  labs(x = \"x\", \n       y = \"y\")\n\n\n\n\n\nFigure 3: The T-2 square.",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-f-1",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-f-1",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "2.6 Part f",
+    "text": "2.6 Part f\nInterestingly, the determinant of \\(\\mathbf{A}\\) gives us the area of the shape plotted in Part e. Find the determinant of \\(\\mathbf{A}\\).\nSolution:\n\n\n(determinant_A = det(A))\n\n[1] 0",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-a-2",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-a-2",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "3.1 Part a",
+    "text": "3.1 Part a\nUse the following to generate a new shape. Compare the shape and its area to your answer in Question 1. \\[\\mathbf{M}_v = \\begin{bmatrix} 1 & k=0.5 \\\\ 0 & 1 \\end{bmatrix} ~~~~~ \\textrm{and} ~~~~~\n  \\mathbf{A}   = \\begin{bmatrix} 1 & -7 \\\\ 5 & 9 \\end{bmatrix}\\]\nSoltuions:\n\n\n(k = 0.5)\n\n[1] 0.5\n\n(M = matrix(c(1,k,0,1),2,2,T))\n\n     [,1] [,2]\n[1,]    1  0.5\n[2,]    0  1.0\n\n(A = matrix(c(1,-7,5,9),2,2,T))\n\n     [,1] [,2]\n[1,]    1   -7\n[2,]    5    9\n\n(T = A %*% M)\n\n     [,1] [,2]\n[1,]    1 -6.5\n[2,]    5 11.5\n\n(basis_vector_1 = T[,1])\n\n[1] 1 5\n\n(basis_vector_2 = T[,2])\n\n[1] -6.5 11.5\n\n(p_0 = c(0,0))\n\n[1] 0 0\n\n(p_1 = basis_vector_1)\n\n[1] 1 5\n\n(p_2 = basis_vector_1 + basis_vector_2)\n\n[1] -5.5 16.5\n\n(p_3 = basis_vector_2)\n\n[1] -6.5 11.5\n\n\n\n\n\n\nCode\nggplot() +\n  geom_segment(aes(x = p_0[1], xend = p_1[1],\n                   y= p_0[2], yend = p_1[2]))+\n  geom_segment(aes(x = p_1[1], xend = p_2[1],\n                   y= p_1[2], yend = p_2[2]))+\n  geom_segment(aes(x = p_2[1], xend = p_3[1],\n                   y= p_2[2], yend = p_3[2]))+\n  geom_segment(aes(x = p_3[1], xend = p_0[1],\n                   y= p_3[2], yend = p_0[2])) +\n  theme_bw() + \n  xlim(-8, 20)+\n  ylim(-8, 20)+\n  labs(x = \"x\", \n       y = \"y\")\n\n\n\n\n\nFigure 4: The T-3 square.\n\n\n\n\n\n\n\n\n\n\n\n(determinant_A = det(A))\n\n[1] 44\n\n\n This area is the same as the area of the original transformation of \\(A\\) without using the \\(k\\) in matrix \\(M\\). This is correct since transformations do not effect area. It is taller than the original.",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-b-2",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-b-2",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "3.2 Part b",
+    "text": "3.2 Part b\nUse the following to generate a new shape. Compare the shape and its area to your answer in Questions 1 and the vertical shear transform in part (a). \\[ \\mathbf{M}_h = \\begin{bmatrix} 1 & 0 \\\\ k=0.5 & 1 \\end{bmatrix}~~~~~ \\textrm{and} ~~~~~\n  \\mathbf{A}   = \\begin{bmatrix} 1 & -7 \\\\ 5 & 9 \\end{bmatrix}\\]\nSoltuions:\n\n\n(k = 0.5)\n\n[1] 0.5\n\n(M = matrix(c(1,0,k,1),2,2,T))\n\n     [,1] [,2]\n[1,]  1.0    0\n[2,]  0.5    1\n\n(T = A %*% M)\n\n     [,1] [,2]\n[1,] -2.5   -7\n[2,]  9.5    9\n\n(basis_vector_1 = T[,1])\n\n[1] -2.5  9.5\n\n(basis_vector_2 = T[,2])\n\n[1] -7  9\n\n(p_0 = c(0,0))\n\n[1] 0 0\n\n(p_1 = basis_vector_1)\n\n[1] -2.5  9.5\n\n(p_2 = basis_vector_1 + basis_vector_2)\n\n[1] -9.5 18.5\n\n(p_3 = basis_vector_2)\n\n[1] -7  9\n\n\n\n\n\n\nCode\nggplot() +\n  geom_segment(aes(x = p_0[1], xend = p_1[1],\n                   y= p_0[2], yend = p_1[2]))+\n  geom_segment(aes(x = p_1[1], xend = p_2[1],\n                   y= p_1[2], yend = p_2[2]))+\n  geom_segment(aes(x = p_2[1], xend = p_3[1],\n                   y= p_2[2], yend = p_3[2]))+\n  geom_segment(aes(x = p_3[1], xend = p_0[1],\n                   y= p_3[2], yend = p_0[2])) +\n  theme_bw() + \n  xlim(-15, 20)+\n  ylim(-15, 20)+\n  labs(x = \"x\", \n       y = \"y\")\n\n\n\n\n\nFigure 5: The T-4 square.\n\n\n\n\n\n\n\n\n\n\n\n(determinant_A = det(A))\n\n[1] 44\n\n\n This area is the same as the area of the original transformation of \\(A\\) without using the \\(k\\) in matrix \\(M\\). This is correct since transformations do not effect area. It is skinnier and taller than the original.",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-c-2",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-c-2",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "3.3 Part c",
+    "text": "3.3 Part c\nCan we shear vertically and horizontally at the same time? Use the following to generate a new shape. Compare the shape and its area to your answers in parts (a) and (b). \\[\\mathbf{M}_{vh} = \\begin{bmatrix} 1 & k=0.5 \\\\ k=0.5 & 1 \\end{bmatrix} ~~~~~ \\textrm{and} ~~~~~\n  \\mathbf{A}   = \\begin{bmatrix} 1 & -7 \\\\ 5 & 9 \\end{bmatrix}\\]\nSoltuions:\n\n\n(k = 0.5)\n\n[1] 0.5\n\n(M = matrix(c(1,k,k,1),2,2,T))\n\n     [,1] [,2]\n[1,]  1.0  0.5\n[2,]  0.5  1.0\n\n(T = A %*% M)\n\n     [,1] [,2]\n[1,] -2.5 -6.5\n[2,]  9.5 11.5\n\n(basis_vector_1 = T[,1])\n\n[1] -2.5  9.5\n\n(basis_vector_2 = T[,2])\n\n[1] -6.5 11.5\n\n(p_0 = c(0,0))\n\n[1] 0 0\n\n(p_1 = basis_vector_1)\n\n[1] -2.5  9.5\n\n(p_2 = basis_vector_1 + basis_vector_2)\n\n[1] -9 21\n\n(p_3 = basis_vector_2)\n\n[1] -6.5 11.5\n\n\n\n\n\n\nCode\nggplot() +\n  geom_segment(aes(x = p_0[1], xend = p_1[1],\n                   y= p_0[2], yend = p_1[2]))+\n  geom_segment(aes(x = p_1[1], xend = p_2[1],\n                   y= p_1[2], yend = p_2[2]))+\n  geom_segment(aes(x = p_2[1], xend = p_3[1],\n                   y= p_2[2], yend = p_3[2]))+\n  geom_segment(aes(x = p_3[1], xend = p_0[1],\n                   y= p_3[2], yend = p_0[2])) +\n  theme_bw() + \n  xlim(-15, 20)+\n  ylim(-15, 25)+\n  labs(x = \"x\", \n       y = \"y\")\n\n\n\n\n\nFigure 6: The T-5 square.\n\n\n\n\n\n\n\n\n\n\n\n(determinant_A = det(A))\n\n[1] 44\n\n\n This area is the same as the area of the original transformation of \\(A\\) without using the \\(k\\) in matrix \\(M\\). This is correct since transformations do not effect area. It is considerablly more skinny and tall than the original.",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-a-3",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-a-3",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "4.1 Part a",
+    "text": "4.1 Part a\nCreate a data frame ladder with the following data. Note your data frame should have three columns; I split it to save vertical space here.\n\n\n\nx\ny\ngroup\nx\ny\ngroup\n\n\n\n\n0\n0\n1\n1\n8\n6\n\n\n0\n20\n1\n0\n10\n7\n\n\n1\n0\n2\n1\n10\n7\n\n\n1\n20\n2\n0\n12\n8\n\n\n0\n2\n3\n1\n12\n8\n\n\n1\n2\n3\n0\n14\n9\n\n\n0\n4\n4\n1\n14\n9\n\n\n1\n4\n4\n0\n16\n10\n\n\n0\n6\n5\n1\n16\n10\n\n\n1\n6\n5\n0\n18\n11\n\n\n0\n8\n6\n1\n18\n11\n\n\n\nSolution:\n\n\n(ladder = data.frame(x=c(0,0,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1),y=c(0,20,0,20,2,2,4,4,6,6,8,8,10,10,12,12,14,14,16,16,18,18),group=c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11)))\n\n   x  y group\n1  0  0     1\n2  0 20     1\n3  1  0     2\n4  1 20     2\n5  0  2     3\n6  1  2     3\n7  0  4     4\n8  1  4     4\n9  0  6     5\n10 1  6     5\n11 0  8     6\n12 1  8     6\n13 0 10     7\n14 1 10     7\n15 0 12     8\n16 1 12     8\n17 0 14     9\n18 1 14     9\n19 0 16    10\n20 1 16    10\n21 0 18    11\n22 1 18    11",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-b-3",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-b-3",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "4.2 Part b",
+    "text": "4.2 Part b\nRemove #|eval: false in the code below. The result should look like a ladder and a very rectangular house if part a is correct.\n\n\n\nCode\nggplot() +\n  geom_path(data = ladder, \n              aes(x = x, y = y, group = group)) +\n                  geom_segment(aes(x = 10, xend = 10,\n                   y=0, yend = 20))+\n  geom_segment(aes(x = 10, xend = 20,\n                   y=20, yend = 20))+\n  geom_segment(aes(x = 20, xend = 20,\n                   y=0, yend = 20))+\n  geom_segment(aes(x = 10, xend = 20,\n                   y=0, yend = 0)) +\n  theme_bw() +\n  xlim(-2,22) +\n  ylim(-2,22)\n\n\n\n\n\nFigure 7: A ladder.",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-c-3",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-c-3",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "4.3 Part c",
+    "text": "4.3 Part c\nUse as.matrix() to create a \\(22 \\times 2\\) matrix \\(\\mathbf{A}\\) containing the x and y observations from the ladder data frame. Use matrix multiplication to compute \\[\\mathbf{T} = \\mathbf{A} \\mathbf{M}_h.\\] Recall, \\[\\mathbf{M}_h = \\begin{bmatrix} 1 & 0 \\\\ k & 1 \\end{bmatrix}\\] and use \\(k=0.5.\\)\nSolution:\n\n\n(A = as.matrix(ladder[, c(1,2)]))\n\n      x  y\n [1,] 0  0\n [2,] 0 20\n [3,] 1  0\n [4,] 1 20\n [5,] 0  2\n [6,] 1  2\n [7,] 0  4\n [8,] 1  4\n [9,] 0  6\n[10,] 1  6\n[11,] 0  8\n[12,] 1  8\n[13,] 0 10\n[14,] 1 10\n[15,] 0 12\n[16,] 1 12\n[17,] 0 14\n[18,] 1 14\n[19,] 0 16\n[20,] 1 16\n[21,] 0 18\n[22,] 1 18\n\n(M_h = matrix(c(1,0,k,1),2,2,T))\n\n     [,1] [,2]\n[1,]  1.0    0\n[2,]  0.5    1\n\n(T = A %*% M_h)\n\n      [,1] [,2]\n [1,]    0    0\n [2,]   10   20\n [3,]    1    0\n [4,]   11   20\n [5,]    1    2\n [6,]    2    2\n [7,]    2    4\n [8,]    3    4\n [9,]    3    6\n[10,]    4    6\n[11,]    4    8\n[12,]    5    8\n[13,]    5   10\n[14,]    6   10\n[15,]    6   12\n[16,]    7   12\n[17,]    7   14\n[18,]    8   14\n[19,]    8   16\n[20,]    9   16\n[21,]    9   18\n[22,]   10   18",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-d-2",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-d-2",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "4.4 Part d",
+    "text": "4.4 Part d\nCreate a data frame leaning.ladder with the x and y equal to the first and second column of \\(\\mathbf{T}\\), respectively, and the same values of group from ladder.\nSolution:\n\n\n(leaning.ladder = data.frame(x = T[,1], y = T[,2], group=c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11)))\n\n    x  y group\n1   0  0     1\n2  10 20     1\n3   1  0     2\n4  11 20     2\n5   1  2     3\n6   2  2     3\n7   2  4     4\n8   3  4     4\n9   3  6     5\n10  4  6     5\n11  4  8     6\n12  5  8     6\n13  5 10     7\n14  6 10     7\n15  6 12     8\n16  7 12     8\n17  7 14     9\n18  8 14     9\n19  8 16    10\n20  9 16    10\n21  9 18    11\n22 10 18    11",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-e-2",
+    "href": "Lab-3-Matrices-and-Dataframes/Lab3WriteUp.html#part-e-2",
+    "title": "Lab Three – Matrices and Data Frames in R",
+    "section": "4.5 Part e",
+    "text": "4.5 Part e\nRemove eval: false in the code below. The result should look like a ladder and a very rectangular house if part a is correct. The new leaning ladder should look like it is leaning on the house.\n\n\n\nCode\nggplot() +\n  geom_path(data = ladder, \n              aes(x = x, y = y, group = group, color = \"Starting Ladder\")) +\n  geom_path(data = leaning.ladder, \n              aes(x = x, y = y, group = group, color = \"Leaning Ladder\")) +\n  geom_segment(aes(x = 10, xend = 10,\n                   y=0, yend = 20))+\n  geom_segment(aes(x = 10, xend = 20,\n                   y=20, yend = 20))+\n  geom_segment(aes(x = 20, xend = 20,\n                   y=0, yend = 20))+\n  geom_segment(aes(x = 10, xend = 20,\n                   y=0, yend = 0)) +\n  theme_bw() +\n  xlim(-2,22) +\n  ylim(-2,22) +\n  scale_color_manual(\"\", values=c(\"darkred\", \"grey\"))\n\n\n\n\n\nFigure 8: A ladder and a leaning ladder.",
+    "crumbs": [
+      "Lab Three -- Matrices and Data Frames in R"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "",
+    "text": "Tips",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#initial-simulation",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#initial-simulation",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "2.1 Initial Simulation",
+    "text": "2.1 Initial Simulation\nIn this lab, we will explore why we use \\(S_{n-1}^2\\) and not \\(S_n^2\\). To do this, we will generate data from four known distributions:\n\nPoisson\\((\\lambda=2)\\)\nBinomial\\(\\left(n=50, p=\\frac{5-\\sqrt{21}}{10}\\right)\\)\nNormal\\((\\mu=0, \\sigma=\\sqrt{2})\\)\nExponential\\(\\left(\\lambda = \\frac{1}{\\sqrt{2}}\\right).\\)\n\nRemark: Note that I have selected the parameters so that the true variance for all four models is 2.\nFor each distribution, write a loop that completes the following 1000 times. Put set.seed(7272) at the top of your code chunk.\n\nGenerate a sample of size \\(n\\) from the distribution.\nCalculate and save \\(S_{n-1}^2\\) and \\(S_n^2.\\)\n\nStart with \\(n=20\\). Is there evidence that \\(S_{n-1}^2\\) is a better estimator than \\(S_n^2\\)?\nCreate a plot or combination of plots (using patchwork) to show the results across all four distributions. Make sure to create a corresponding table that numerically summarizes the results of the simulation. You should include \\[\\begin{align*}\n\\textrm{Bias} &= \\textrm{Average of Estimates} - \\textrm{True Value}\\\\\n\\textrm{Precision} &= \\frac{1}{\\textrm{Variance of Estimates}}\\\\\n\\textrm{Mean Square Error} &= \\textrm{Bias}^2 + \\textrm{Variance of Estimates}.\n\\end{align*}\\]\nSolution:\n\n\n\n\n\n\nSimulation Summary of Variance Estimators\n\n\nDistribution\nEstimator\nBias\nVariance\nPrecision\nMSE\n\n\n\n\nPoisson\n{n-1}²\n-0.0161\n0.4759\n2.1013\n0.4762\n\n\nPoisson\nn²\n-0.1153\n0.4295\n2.3283\n0.4428\n\n\nBinomial\n{n-1}²\n-0.0354\n0.4652\n2.1496\n0.4665\n\n\nBinomial\nn²\n-0.1336\n0.4198\n2.3821\n0.4376\n\n\nNormal\n{n-1}²\n0.0023\n0.4929\n2.0288\n0.4929\n\n\nNormal\nn²\n-0.0978\n0.4448\n2.2482\n0.4544\n\n\nExponential\n{n-1}²\n-0.0158\n1.4305\n0.6991\n1.4307\n\n\nExponential\nn²\n-0.1150\n1.2910\n0.7746\n1.3042",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#simulation-over-various-sample-sizes",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#simulation-over-various-sample-sizes",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "2.2 Simulation over various sample sizes",
+    "text": "2.2 Simulation over various sample sizes\nConsider the effect of the sample size have on these results. Provide a graphical and numerical summary of what happens as \\(n\\) increases – say \\(n=20\\), \\(n=50\\), \\(n=100\\), and \\(n=500\\). Does the result in your initial simulation hold across samples? Or, do things change as the sample size changes? Ensure to set your randomization seed.\nSolution:\n\n\n\n\n\n\n\n\n\n\n\n\n\nSimulation Results Across Sample Sizes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nn\nDistribution\nBias (n-1)\nBias (n)\nVar (n-1)\nVar (n)\nPrecision (n-1)\nPrecision (n)\nMSE (n-1)\nMSE (n)\n\n\n\n\n20\nPoisson\n-0.0161\n-0.1153\n0.4759\n0.4295\n2.1013\n2.3283\n0.4762\n0.4428\n\n\n20\nBinomial\n-0.0354\n-0.1336\n0.4652\n0.4198\n2.1498\n2.3821\n0.4664\n0.4376\n\n\n20\nNormal\n0.0023\n-0.0978\n0.4929\n0.4448\n2.0289\n2.2480\n0.4929\n0.4544\n\n\n20\nExponential\n-0.0158\n-0.1150\n1.4305\n1.2910\n0.6991\n0.7746\n1.4307\n1.3042\n\n\n50\nPoisson\n0.0109\n-0.0293\n0.2239\n0.2151\n4.4659\n4.6500\n0.2240\n0.2159\n\n\n50\nBinomial\n0.0026\n-0.0374\n0.1981\n0.1903\n5.0477\n5.2558\n0.1981\n0.1917\n\n\n50\nNormal\n0.0098\n-0.0304\n0.1666\n0.1600\n6.0025\n6.2500\n0.1667\n0.1609\n\n\n50\nExponential\n0.0497\n0.0087\n0.7153\n0.6869\n1.3981\n1.4557\n0.7177\n0.6870\n\n\n100\nPoisson\n0.0091\n-0.0110\n0.1004\n0.0984\n9.9648\n10.1671\n0.1004\n0.0985\n\n\n100\nBinomial\n-0.0279\n-0.0476\n0.0932\n0.0914\n10.7266\n10.9444\n0.0940\n0.0936\n\n\n100\nNormal\n0.0157\n-0.0045\n0.0820\n0.0803\n12.1988\n12.4465\n0.0822\n0.0804\n\n\n100\nExponential\n0.0278\n0.0076\n0.3502\n0.3432\n2.8556\n2.9136\n0.3510\n0.3433\n\n\n500\nPoisson\n0.0015\n-0.0025\n0.0186\n0.0185\n53.8894\n54.1056\n0.0186\n0.0185\n\n\n500\nBinomial\n0.0039\n-0.0001\n0.0184\n0.0183\n54.4446\n54.6630\n0.0184\n0.0183\n\n\n500\nNormal\n0.0045\n0.0005\n0.0171\n0.0171\n58.3935\n58.6278\n0.0171\n0.0171\n\n\n500\nExponential\n-0.0002\n-0.0042\n0.0647\n0.0644\n15.4565\n15.5185\n0.0647\n0.0645",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#simulation",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#simulation",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "2.3 Simulation",
+    "text": "2.3 Simulation\nYou have written code to draw a random sample of various sizes from each distribution, and to calculate and store the calculated estimates. Rework your code to produce a density plot of the \\(s_{n-1}^2\\) and \\(s_{n}^2\\). Do you have a guess about their distribution? Ensure to set your randomization seed.\nSolutution: As the sampling size increases, the distributions appear to show signs of approaching the Normal distribution, and while they are small sample sizes they have a right skew. This could resemble a log-normal distribution since at low sample sizes it shows large right skews. Since the variances of \\((n-1)^2\\) and \\(n^2\\) are so close to each other, it is incredibly hard to distinguish them on the grpahs.",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#bootstrap",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#bootstrap",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "2.4 Bootstrap",
+    "text": "2.4 Bootstrap\nNow, take one sample from each distribution. Instead of drawing a random sample at each iteration, sample with replacement from the one sample. Produce a density plot of the \\(s_{n-1}^2\\) and \\(s_{n}^2\\). Do we get roughly the same information as we do in the full simulation? Try this over several seeds – what do you notice? Ensure to set your randomization seed.\nSolution:* For the most part it is close enough to see similarities between the bootstrapping and the full simulation, showing similar curves. It still shows a general right skew, however across different seeds the distributions can get extremely incorrect and far off from where the full simulation shows.",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Menu.html#ingredients-1",
+    "href": "Lab-4-Coding-Structures/Menu.html#ingredients-1",
+    "title": "Ingredients",
+    "section": "Ingredients",
+    "text": "Ingredients\n\n2 cans of baked beans\n1 can of black beans (drained and rinsed)\n1 can of white kidney beans (drained and rinsed)\n1 can of red kidney beans (drained and rinsed)\n1 large yellow onion\n1 pound of ground beef\n1 pound of bacon\n16 ounces of BBQ sauce"
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Menu.html#instructions",
+    "href": "Lab-4-Coding-Structures/Menu.html#instructions",
+    "title": "Ingredients",
+    "section": "Instructions",
+    "text": "Instructions\n\nDice the yellow onion.\nDrain and rinse black, white, and red beans.\nCrumble and cook beef in a frying pan.\nCook bacon and cut into bite size pieces.\nCombine all ingredients in a crock pot. Cook at low heat for 6-7 hours. Stir occasionally."
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Menu.html#ingredients-2",
+    "href": "Lab-4-Coding-Structures/Menu.html#ingredients-2",
+    "title": "Ingredients",
+    "section": "Ingredients",
+    "text": "Ingredients\n\n1 2 oz can of anchovies\n1 vidalia onion\n5 garlic cloves\n1/2 cup red wine (optional)\n1 small can of tomato paste\n2 tablespoons butter\n1 large can of peeled tomatoes\n2 tablespoons honey\n4 tsp italian seasoning\n1/8 tsp red pepper flakes\n1 batch of fresh lasanga noodles (or 1 box of lasanga noodles)\n1 large container of ricotta cheese\n1 cup grated parmesan cheese\n1 egg\n8 oz mozzarella"
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Menu.html#instructions-1",
+    "href": "Lab-4-Coding-Structures/Menu.html#instructions-1",
+    "title": "Ingredients",
+    "section": "Instructions",
+    "text": "Instructions\n\nDice onion and mince garlic.\nHeat 2 tablespoons olive oil in a sauce pan. Add anchovies and cook until they break down.\nAdd onions and garlic to the pan and cook until soft.\nAdd red wine and simmer for 3-5 minutes (optional).\nAdd tomato paste and butter, and cook until fully combined.\nAt peeled tomatoes, stir breaking up tomatoes.\nOnce simmering, add honey, 2 tsp italian seasoning, pepper flakes and continue to stir.\nPrepare pasta noodles.\nIn a medium bowl, mix ricotta cheese, egg, mozzarella, parmesan, 2 tsp italian seasoning, and a pinch of salt and pepper.\nSpread one cup of sauce on the bottom of the casserole dish. Add a layer of lasagna noodles. Spread 1/3 of the cheese mixture. Repeat two more times.\nTop with mozzarela cheese.\nCover with tin foil and bake at 375 degrees for 30 minutes. Remove tin foil and bake uncooked another 15-20 minutes, until cheese is melted and browning."
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Menu.html#ingredients-3",
+    "href": "Lab-4-Coding-Structures/Menu.html#ingredients-3",
+    "title": "Ingredients",
+    "section": "Ingredients",
+    "text": "Ingredients\n\n1 2 oz can of anchovies\n1 vidalia onion\n5 garlic cloves\n1/2 cup red wine (optional)\n1 small can of tomato paste\n2 tablespoons butter\n1 large can of peeled tomatoes\n2 tablespoons honey\n3 tsp italian seasoning\n1/8 tsp red pepper flakes\n1 pound pasta (e.g., rigatoni or penne)\n1 pound of ground beef or sausage\n1 large container of ricotta cheese\n1/2 cup grated parmesan cheese\n1 egg\n8 oz mozzarella"
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Menu.html#instructions-2",
+    "href": "Lab-4-Coding-Structures/Menu.html#instructions-2",
+    "title": "Ingredients",
+    "section": "Instructions",
+    "text": "Instructions\n\nDice onion and mince garlic.\nHeat 2 tablespoons olive oil in a sauce pan. Add anchovies and cook until they break down.\nAdd onions and garlic to the pan and cook until soft.\nAdd red wine and simmer for 3-5 minutes (optional).\nAdd tomato paste and butter, and cook until fully combined.\nAt peeled tomatoes, stir breaking up tomatoes.\nOnce simmering, add honey, 2 tsp italian seasoning, pepper flakes and continue to stir.\nBrown meat in a frying pan with 1 tsp italian seasoning.\nPrepare pasta according to package instructions. Save 1 cup of pasta water in case you need to loosen the sauce.\nDrain meat and put in a large bowl. Mix in ricotta, egg, half the mozzarella, half the parmesan, and a pinch of salt and pepper. Add in half the tomato sauce and all of the pasta.\nAdd mixture to a 9x13 glass pan. Top with remaining tomato sauce, mozzarella cheese, and parmesan.\nBake in the oven at 375 degrees for 35 minutes."
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Menu.html#ingredients-4",
+    "href": "Lab-4-Coding-Structures/Menu.html#ingredients-4",
+    "title": "Ingredients",
+    "section": "Ingredients",
+    "text": "Ingredients\n\n1/3 cup chia seeds\n1 tablespoon maple syrup\n1 cup almond milk\n1 cup of vanilla yogurt\n2 tablespoons apricot jam\n6 dried apricots\n1/4 cup pumpkin seeds"
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Menu.html#instructions-3",
+    "href": "Lab-4-Coding-Structures/Menu.html#instructions-3",
+    "title": "Ingredients",
+    "section": "Instructions",
+    "text": "Instructions\n\nCombine chia seeds, syrup, and milk with a pinch of salt in a 1-pint wide mouthed mason jar.\nWhisk cover and refrigerate overnight.\nDice dried apricots.\nSplit between two 1-pint wide mouthed mason jars. Top with yogurt, apricot jam, dried apricots, and pumpkin seeds."
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html",
+    "title": "Lab Four – Programming in R",
+    "section": "",
+    "text": "In this lab, we will build a mealkit recipe generator. I created a small website of about 40 recipes. We will scrape recipes from that website, randomly select three meals, and print a grocery list with recipe cards.",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-a",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-a",
+    "title": "Lab Four – Programming in R",
+    "section": "1.1 Part a",
+    "text": "1.1 Part a\nBelow, I create a numeric vector filled with random observations. Ask for the 3rd item. Note: The set.seed(7272) portion ensures we all get the same answer.\n\n\nset.seed(7272) # sets the randomization seed for replication\nx &lt;- sample(x=1:10,          # sample from 1, 2, 3, ..., 10 \n            size=10,         # sample of 10\n            replace = TRUE)  # allowed to sample the same item multiple times\n\n\nSolution:\n\n\nx[3]\n\n[1] 5",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-b",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-b",
+    "title": "Lab Four – Programming in R",
+    "section": "1.2 Part b",
+    "text": "1.2 Part b\nBelow, I create a data frame filled with random observations.\n\n\nset.seed(7272) # sets the randomization seed for replication\ndf &lt;- data.frame(x1 = sample(x=1:10,          # sample from 1, 2, 3, ..., 10 \n                             size=10,         # sample of 10\n                             replace = TRUE), # allowed to sample the same item multiple times\n                 x2 = sample(x=1:10,          # sample from 1, 2, 3, ..., 10 \n                             size=10,         # sample of 10\n                             replace = TRUE), # allowed to sample the same item multiple times\n                 x3 = sample(x=1:10,          # sample from 1, 2, 3, ..., 10 \n                             size=10,         # sample of 10\n                             replace = TRUE)  # allowed to sample the same item multiple times,\n)",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-b-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-b-1",
+    "title": "Lab Four – Programming in R",
+    "section": "1.3 Part b",
+    "text": "1.3 Part b\nUse the head(...) function to peek at the data frame.\nSolution:\n\n\nhead(df)\n\n  x1 x2 x3\n1  8  1  8\n2  3  7  2\n3  5  3  3\n4  3  6  2\n5  2  2  3\n6  3  8 10",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-c",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-c",
+    "title": "Lab Four – Programming in R",
+    "section": "1.4 Part c",
+    "text": "1.4 Part c\nAsk for the column x1.\nSolution:\n\n\ndf$x1\n\n [1] 8 3 5 3 2 3 1 2 6 2",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-d",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-d",
+    "title": "Lab Four – Programming in R",
+    "section": "1.5 Part d",
+    "text": "1.5 Part d\nAsk for the fifth row of the data frame.\nSolution:\n\n\ndf[5, ]\n\n  x1 x2 x3\n5  2  2  3",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-e",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-e",
+    "title": "Lab Four – Programming in R",
+    "section": "1.6 Part e",
+    "text": "1.6 Part e\nAsk for the the value of x1 in the fifth row of the data frame.\nSolution:\n\n\ndf$x1[5]\n\n[1] 2",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-f",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-f",
+    "title": "Lab Four – Programming in R",
+    "section": "1.7 Part f",
+    "text": "1.7 Part f\nAsk for the the value of in the third column and the fifth row of the data frame.\nSolution:\n\n\ndf[5,3]\n\n[1] 3",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-g",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-g",
+    "title": "Lab Four – Programming in R",
+    "section": "1.8 Part g",
+    "text": "1.8 Part g\nCreate a sequence from 1 to 10 by 2 and use it to print the odd rows of the data frame.\nSolution:\n\n\nodd = seq(1,10,2)\nfor (i in odd){\n  print(df[i, ])\n}\n\n  x1 x2 x3\n1  8  1  8\n  x1 x2 x3\n3  5  3  3\n  x1 x2 x3\n5  2  2  3\n  x1 x2 x3\n7  1 10  1\n  x1 x2 x3\n9  6  2 10",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-h",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-h",
+    "title": "Lab Four – Programming in R",
+    "section": "1.9 Part h",
+    "text": "1.9 Part h\nBelow, I create an empty column called x12. Fill in the details of the for(...) loop to ensure x12 is the product of x1 and x2.\n\n\nn &lt;- nrow(df)                # How many rows to we have to fill?\ndf$x12 &lt;- rep(NA, nrow(df))   # Create an empty column for x12\nfor(i in 1:nrow(df)){\n  df$x12[i] = df$x1[i] * df$x2[i]\n}\n# or\ndf$x12 = df$x1 * df$x2",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-i",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-i",
+    "title": "Lab Four – Programming in R",
+    "section": "1.10 Part i",
+    "text": "1.10 Part i\nWrite a function called calculate.score(...) that takes three arguments representing x1, x2, and x3) and returns a single value based on the formula: \\[Score = (x_1 \\times 2) + x_2 - x_3\\] Use your function to create a new column total.score in our data frame df.\nSolution:\n\n\ncalculate.score = function(x1,x2,x3){\n  score = (x1*2) + x2 - x3\n  return(score)\n}\n\ndf$total.score = rep(NA, n)\nfor (row in 1:n){\n  df$total.score[row] = calculate.score(df$x1[row], df$x2[row], df$x3[row])\n}\n# or\ndf$total.score = (df$x1 * 2) + df$x2 - df$x3\nprint(df)\n\n   x1 x2 x3 x12 total.score\n1   8  1  8   8           9\n2   3  7  2  21          11\n3   5  3  3  15          10\n4   3  6  2  18          10\n5   2  2  3   4           3\n6   3  8 10  24           4\n7   1 10  1  10          11\n8   2  6  1  12           9\n9   6  2 10  12           4\n10  2  4  1   8           7",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-j",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-j",
+    "title": "Lab Four – Programming in R",
+    "section": "1.11 Part j",
+    "text": "1.11 Part j\nCreate a function called evaluate.row(...) that takes one argument and returns “low” when the argument is less than 4, “mid” when the argument is between 4 and 7 (inclusive), and “high” when the arguement is 8 or larger. Then, use sapply(...) to apply it to column x1.\nSolution:\n\n\nevaluate.row = function(x){\n  if (x &lt; 4){\n    return(\"low\")\n  }\n  else if (x &gt;= 4 && x &lt;= 7){\n    return(\"mid\")\n  }\n  else{\n    return(\"high\")\n  }\n}\ndf$evaluated = sapply(df$x1, evaluate.row)\n# or\ndf$evaluated = ifelse(df$x1 &lt; 4, \"low\", ifelse(df$x1 &lt;= 7, \"mid\", \"high\"))",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-k",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-k",
+    "title": "Lab Four – Programming in R",
+    "section": "1.12 Part k",
+    "text": "1.12 Part k\nDid we need to use loops or functions in (h.)-(j.)? That is, can we use vectorization to attain the same results in 1 line each? Where it is possible, write the line of code. Where it is not, explain why.",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-a-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-a-1",
+    "title": "Lab Four – Programming in R",
+    "section": "2.1 Part a",
+    "text": "2.1 Part a\nInstall and load the rvest package (Wickham 2025). Solution\n\n\n#install.packages(\"rvest\")\nlibrary(rvest)",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-b-2",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-b-2",
+    "title": "Lab Four – Programming in R",
+    "section": "2.2 Part b",
+    "text": "2.2 Part b\nLoad the html of the website/KimchiGrilledCheese.html using the read_html() function. We will use the Kimchi Grilled Cheese recipe as our prototype and extend this workflow to all recipes, so try to be as general as possible. If you do look at it, you’ll notice it contains the html we saw in the developer tools in class. Hint: You can use read_html(...) like read.csv(...). Don’t forget you can use the documentation to help use it.\nSolution\n\n\nKGC = read_html(\"website/KimchiGrilledCheese.html\")",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-c-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-c-1",
+    "title": "Lab Four – Programming in R",
+    "section": "2.3 Part c",
+    "text": "2.3 Part c\nOpen the html file in a web browser and open developer tools. In chrome-based browsers, you can do this by pressing the three verticle dots in the upper-right corner, clicking “more tools”, then “developer tools”.\nFind the name of the Ingredients section of the website and pull the HTML of the function using html_element(...) and save the results to an object called ingredients.section.  Hint: You can ask for elements by id using a preceeding “#”. See ?html_element(...) for a helpful example.\nSolution\n\n\ningredients.section = html_element(KGC,\"#ingredients\")",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-d-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-d-1",
+    "title": "Lab Four – Programming in R",
+    "section": "2.4 Part d",
+    "text": "2.4 Part d\nNow, we want to obtain all of the itemized items. Find the element type the individual ingredients and pull all of them from ingredients.section using html_elements(...) (note the added s) and save the results to an object called ingredients. Hint: You can ask for elements by type by simply specifying the tag (e.g., “p” for paragraph). See `?html_element for a helpful example.\nSolution\n\n\n(ingredients = html_elements(ingredients.section, \"li\"))\n\n{xml_nodeset (9)}\n[1] &lt;li&gt;1/8 tsp chili flakes&lt;/li&gt;\n[2] &lt;li&gt;4 garlic cloves&lt;/li&gt;\n[3] &lt;li&gt;5 oz spinach&lt;/li&gt;\n[4] &lt;li&gt;1 tsp gochujang&lt;/li&gt;\n[5] &lt;li&gt;3 tsp mayonnaise&lt;/li&gt;\n[6] &lt;li&gt;2/3 cup kimchi&lt;/li&gt;\n[7] &lt;li&gt;4 slices of bread&lt;/li&gt;\n[8] &lt;li&gt;2/3 cup cheddar cheese&lt;/li&gt;\n[9] &lt;li&gt;4 tablespoons everything seasoning.&lt;/li&gt;",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-e-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-e-1",
+    "title": "Lab Four – Programming in R",
+    "section": "2.5 Part e",
+    "text": "2.5 Part e\nSimilar to Part c. Find the name of the Instructions section of the website and pull the HTML of the function using html_element(...) and save the results to an object called instructions.section.\nSolution\n\n\ninstructions.section = html_element(KGC, \"#instructions\")",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-f-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-f-1",
+    "title": "Lab Four – Programming in R",
+    "section": "2.6 Part f",
+    "text": "2.6 Part f\nNow, we want to obtain all of the enumerated items. Find the element type the individual instructions and pull all of them from instructions.section using html_elements(...) (note the added s) and save the results to an object called instructions.\nSolution\n\n\n(instructions = html_elements(instructions.section, \"li\"))\n\n{xml_nodeset (5)}\n[1] &lt;li&gt;In a frying pan, heat 2 tablespoons olive oil with chili flakes.&lt;/li&gt;\n[2] &lt;li&gt;Add spinach and cook until wilted.&lt;/li&gt;\n[3] &lt;li&gt;Mix gochujang and mayonnaise in a small bowl and spread on one side o ...\n[4] &lt;li&gt;Build sandwiches by layering spinach, kimchi, and cheese between two  ...\n[5] &lt;li&gt;Fry in butter until golden brown on both sides.&lt;/li&gt;",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-g-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-g-1",
+    "title": "Lab Four – Programming in R",
+    "section": "2.7 Part g",
+    "text": "2.7 Part g\nFind the class of the recipe image and pull the HTML using html_element(...) and save the results to an object called image.element.  Hint: You can ask for elements by class using a preceeding “.”. See ?html_element(...) for a helpful example. Further, note that HTML elements may have more than one class (separated by a space). When that is the case, you need to choose one.\nSolution\n\n\nimage.element = html_element(KGC, (\".figure-img\"))",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-h-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-h-1",
+    "title": "Lab Four – Programming in R",
+    "section": "2.8 Part h",
+    "text": "2.8 Part h\nUse the html_attr(...) function to pull the source link (“src”). Then, use paste(...) to prepend the source link with “website/” so we have the full link. Note: This would be like adding “https://www.website.com” to get the absolute link.\nSolution\n\n\nsource_link = html_attr(image.element, \"src\")\nimage.url = paste(\"website/\", source_link, sep = \"\")\nimage.url\n\n[1] \"website/images/KimchiGrilledCheese.jpg\"",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-i-1",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#part-i-1",
+    "title": "Lab Four – Programming in R",
+    "section": "2.9 Part i",
+    "text": "2.9 Part i\nNow that we have all the things we need, let’s try to print the recipe. Below, I have written code to print from the objects. One by one, remove #| eval: false from the YAML header and add #| echo: false and #| results: 'asis', and test. Let me know if you’re stuck!\nImage\n\n\n\nIngredients\n\n\n1/8 tsp chili flakes\n4 garlic cloves\n5 oz spinach\n1 tsp gochujang\n3 tsp mayonnaise\n2/3 cup kimchi\n4 slices of bread\n2/3 cup cheddar cheese\n4 tablespoons everything seasoning.\n\n\nInstructions\n\n\nIn a frying pan, heat 2 tablespoons olive oil with chili flakes.\nAdd spinach and cook until wilted.\nMix gochujang and mayonnaise in a small bowl and spread on one side of each slice of bread. Sprinkle with everything seasoning and press it into the bread.\nBuild sandwiches by layering spinach, kimchi, and cheese between two slices of bread.\nFry in butter until golden brown on both sides.",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#why-a-fake-website",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#why-a-fake-website",
+    "title": "Lab Four – Programming in R",
+    "section": "4.1 Why a fake website?",
+    "text": "4.1 Why a fake website?\nRead https://www.scrapingbee.com/blog/is-web-scraping-legal/. Originally, I conceived doing this with recipes from Purple Carrot (my favorite subscription service). Being a large company, their terms of service are very long and precluded us from copying their recipes. We also checked a few smaller recipe websites we like and even they had terms of service that restricted automated collection of data.",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#conditionals",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#conditionals",
+    "title": "Lab Four – Programming in R",
+    "section": "4.2 Conditionals",
+    "text": "4.2 Conditionals\nDid you use conditional statements in your code? If yes, how. If not, are there places you could have used them but did something else?\nAnswer: I didn’t see a need for conditionals in making the menu since I used a single function that loaded and printed all the data for an abritrary recipe html. Maybe conditionals could have been used in making sure the correct recipe is used in the function.",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#loops",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#loops",
+    "title": "Lab Four – Programming in R",
+    "section": "4.3 Loops",
+    "text": "4.3 Loops\nDid you use loops in your code? If yes, how. If not, are there places you could have used them but did something else?\nAnswer: Yes, I used a loop in the grocery list section so that it would print out the ingredients for each recipe that is on the menu.",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "Lab-4-Coding-Structures/Lab4WriteUp.html#functions",
+    "href": "Lab-4-Coding-Structures/Lab4WriteUp.html#functions",
+    "title": "Lab Four – Programming in R",
+    "section": "4.4 Functions",
+    "text": "4.4 Functions\nDid you use functions in your code? If yes, how. If not, are there places you could have used them but did something else?\nAnswer: Yes, I used a generic function at the beginning to create an easy way to implement the same html element collections and printing on an arbitrary recipe. The function pulled all the elements and at the end printed them out in the correct order so that all it needed was the already read html file as an input.",
+    "crumbs": [
+      "Lab Four -- Programming in R"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site",
+    "crumbs": [
+      "About"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html",
+    "href": "Lab-8-Probability/Lab8WriteUp.html",
+    "title": "Lab Eight – Probability",
+    "section": "",
+    "text": "Tips",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#the-binomial-distribution",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#the-binomial-distribution",
+    "title": "Lab Eight – Probability",
+    "section": "1.1 The Binomial Distribution",
+    "text": "1.1 The Binomial Distribution\nIn many introductory courses, we make the simplifying assumption of independence in Bernoulli trials. For example, when playing best two-out-of-three legs in a darts match, we would assume Player A has an 70% chance of winning each leg. We write: \\[X \\sim \\text{Binomial}(n=3, p=0.70)\\] where\n\n\\(X\\) is the number of legs won\n\\(n\\) is the number of trials\n\\(p\\) is the probability of the event of interest\n\nOf note, it is not necessarily the case that the players play all three legs – if either player wins legs one and two the match ends.\nThere are eight possible outcomes for Player A:\n\n(win, win, “win”) \\(\\longrightarrow\\) Player A wins\n(win, win, “lose”) \\(\\longrightarrow\\) Player A wins\n(win, lose, win) \\(\\longrightarrow\\) Player A wins\n(win, lose, lose) \\(\\longrightarrow\\) Player A loses\n(lose, win, win) \\(\\longrightarrow\\) Player A wins\n(lose, win, lose) \\(\\longrightarrow\\) Player A loses\n(lose, lose, “win”) \\(\\longrightarrow\\) Player A loses\n(lose, lose, “lose”) \\(\\longrightarrow\\) Player A loses\n\nNote: I use quotations above to denote outcomes where the last match isn’t actually played.\nUse the Binomial distribution to compute the probability that Player A wins the match. Make sure write out your probability statement and work to write it in terms of the distribution function (PMF/CDF) to plot the probability using ggplot.\nSolution: It would be the probability that Player A wins at least 2 games: \\(P(X &gt;= 2) = 1 - CDF(x &lt;= 1)\\)\n\n\n\nCode\nwinner_A = 1 - pbinom(1, 3, 0.7)",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#the-negative-binomial-distribution",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#the-negative-binomial-distribution",
+    "title": "Lab Eight – Probability",
+    "section": "1.2 The Negative Binomial Distribution",
+    "text": "1.2 The Negative Binomial Distribution\nIn intermediate courses, we learn the Negative Binomial distribution that we use to model the number of “failures” until the \\(r\\)th success. Note that this approach still makes the simplifying assumption of independence in Bernoulli trials.\nSpecify the two cases necessary to compute the probability. Fully explain these probability statements in the context of a best two-out-of-three match and the Negative Binomial distribution. Finally, compute the probability that Player A wins the match and show you get the same result as the Binomial approach. Make sure write out your probability statement and work to write it in terms of the distribution function (PMF/CDF) to plot the probability using ggplot.\nSolution: The two cases are where Player A wins both of the first two legs, or they lose one of the first two but win in the third. The first case would use the negative binomial distribution to calculate the number of trials until a double win in a row, and the second case would use the negative binomial distribution to calculate the number of trials until u win the third leg with one loss somewhere before it. We add the probability of 0 losses in first case and one loss in second case.\n\n\n\nCode\nnegative = dnbinom(0, 2, 0.7) + dnbinom(1, 2, 0.7)",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#the-beta-part",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#the-beta-part",
+    "title": "Lab Eight – Probability",
+    "section": "2.1 The Beta Part",
+    "text": "2.1 The Beta Part\n\nPlot the corresponding Beta distribution. Interpret the plot in the context of a best two-out-of-three match and the Binomial distribution.\nHint: The Beta distribution is available in base R via _beta().\n\nSolution:\n\n\n\nCode\np = seq(0, 1, length = 1000)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow does the Beta incorporate uncertainty about the skill of Player A? Compute the mean and variance of the distribution.\nHint: You will find the integrate(...) function helpful here. \\[\\begin{align*}\n  E(P) &= \\mu_P = \\int_{0}^1 p f_P(p) dp\\\\\n  var(P) &= \\sigma^2_P = \\int_{0}^1 (p-\\mu_P)^2 f_P(p) dp\\\\\n\\end{align*}\\]\n\nSolution:\n\n\n\nCode\nfunc1 &lt;- function(p){\n      p * dbeta(p, 7, 3)\n}\n\nlower = 0\nupper = 1\n(mean = integrate(func1, lower, upper)$value)\n\n\n[1] 0.7\n\n\nCode\nfunc2 &lt;- function(p){\n      (p - mean)^2 * dbeta(p, 7, 3)\n}\n(var = integrate(func2, lower, upper)$value)\n\n\n[1] 0.01909091\n\n\n\n\nWhat is the probability that Player A has a win probability of exactly 0.70? Make sure write out your probability statement and work to write it in terms of the distribution function (PDF/CDF) to plot the probability using ggplot. Hint: Think carefully about the properties of continuous distributions here.\n\nSolution: The probability that Player A has a win probability of exactly any number is 0 since continuous distributions do area calculations with integrals, if we take an integral of an infinitely small slice, it is 0.\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is the probability that Player A has a win probability of at least 0.50? Make sure write out your probability statement and work to write it in terms of the distribution function (PDF/CDF) to plot the probability using ggplot.\n\nSolution:\n\n\n\nCode\n(at_least_50 = 1 - pbeta(0.50, shape1 = 7, shape2 = 3))\n\n\n[1] 0.9101562\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhat is the 90th percentile of Player A’s win probability based on this Beta distribution? Make sure write out your probability statement and work to write it in terms of the distribution function (PDF/CDF) to plot the percentile using ggplot.\n\nSolution:\n\n\n\nCode\n(p90 = qbeta(0.90, shape1 = 7, shape2 = 3))\n\n\n[1] 0.8705027",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#the-beta-binomial-part",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#the-beta-binomial-part",
+    "title": "Lab Eight – Probability",
+    "section": "2.2 The Beta-Binomial Part",
+    "text": "2.2 The Beta-Binomial Part\nCompute the probability that Player A wins the match. Compare your result to the Binomial and Negative Binomial results. Make sure write out your probability statement and work to write it in terms of the distribution function (PMF/CDF) to plot the probability using ggplot\nSolution:\n\n\n\nCode\nx = 0:3\nalpha = 7\nbeta = 3\nn = 3\n\npmf_beta = dbbinom(x, size = n, alpha = alpha, beta = beta)\ncdf_beta = pbbinom(x, size = n, alpha = alpha, beta = beta)\n\nwin_beta = 1 - cdf_beta[2]\nwin_beta\n\n\n[1] 0.7636364",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#the-why",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#the-why",
+    "title": "Lab Eight – Probability",
+    "section": "2.3 The Why",
+    "text": "2.3 The Why\nCheck the expected value and variance of each distribution.\nAnalytically, we have \\[\\begin{align*}\n  E(X) &= np  &&var(X) = np(1-p) \\tag{Binomial Distribution}\\\\\n  E(X) &= n\\left(\\frac{\\alpha}{\\alpha+\\beta}\\right)  &&var(X) = \\frac{n \\alpha \\beta (\\alpha + \\beta + n)}{(\\alpha+\\beta)^2(\\alpha + \\beta + 1)} \\tag{Beta-Binomial Distribution}\n\\end{align*}\\]\nFor each distribution, compute the mean number of legs won for player A.\nHint: You can perform the sum over the finite support set here. \\[\\begin{align*}\n  E(X)   = \\mu_X    &= \\sum_{i=0}^3 i f_X(i)\\\\\n  var(X) = \\sigma_X &= \\sum_{i=0}^3 (i-\\mu_X) f_X(i)\n\\end{align*}\\]\nSolution:\n\n\n\nCode\nx = 0:3\npmf_bi = dbinom(x, 3, p)\n(mu_bi = sum(x * pmf_bi))\n\n\n[1] 376.1284\n\n\nCode\n(var_bi = sum((x - mu_bi)^2 * pmf_bi))\n\n\n[1] 35192497\n\n\nCode\npmf_beta = dbbinom(x, 3, 7, 3)\n(mu_beta = sum(x * pmf_beta))\n\n\n[1] 2.1\n\n\nCode\n(var_beta = sum((x - mu_beta)^2 * pmf_beta))\n\n\n[1] 0.7445455",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#probability-mass-function",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#probability-mass-function",
+    "title": "Lab Eight – Probability",
+    "section": "3.1 Probability Mass Function",
+    "text": "3.1 Probability Mass Function\nThe mass function for this distribution is below. While it used to be available in the MBD package for R, this package is no longer available. \\[f_X(x) = \\frac{1}{c} {n \\choose x} p^x (1-p)^{n-x} \\theta^{x(n-x)}I(x \\in \\{0, 1, ..., n\\})\\] where \\[c = \\sum_{i=0}^n {n \\choose i} p^i (1-p)^{n-i} \\theta^{i(n-i)}\\]\nWrite a function in R called daltbinom() for computing the PMF of this distribution. Use your function to plot the distribution where \\(p=0.70\\) where \\(\\theta=0.50\\), \\(\\theta=1\\), and \\(\\theta=1.50\\). Comment on the differences in the context of a best two-out-of-three match\nSolution: This shows the effect of clustering around winning streaks, losing streaks, and no effect of a streak. With theta above 1, winning increases likelihood of winning, and vice versa for theta below 1.\n\n\n\nCode\ndaltbinom &lt;- function(x, n, p, theta){\n  i = 0:n\nc = sum(choose(n, i) * (1 - p)^(n - i) * p^i * theta^(i * (n - i)))\npmf = choose(n, x) * p^x * (1 - p)^(n - x) * theta^(x * (n - x)) / c\nreturn(pmf)\n}\n(daltbinom(x, n, 0.7, 0.5))\n\n\n[1] 0.05118483 0.08957346 0.20900474 0.65023697\n\n\nCode\n(daltbinom(x, n, 0.7, 1))\n\n\n[1] 0.027 0.189 0.441 0.343\n\n\nCode\n(daltbinom(x, n, 0.7, 1.5))\n\n\n[1] 0.0151049 0.2379021 0.5551049 0.1918881\n\n\n\n\n\n\nCode\ntheta = c(0.5, 1, 1.5, 0)\nMBDDat &lt;- tibble(x = 0:3) |&gt;\nmutate(PMF = daltbinom(x, n, 0.7, theta))\n\nPMF.plot &lt;- ggplot() +\ngeom_linerange(data = MBDDat,\naes(x = x, ymin = 0, ymax = PMF)) +\n\ngeom_linerange(data = MBDDat |&gt; filter(x&gt;=2),\naes(x = x, ymin = 0, ymax = PMF),\ncolor = \"darkorchid2\", linewidth=0, alpha=0.50) +\ngeom_hline(yintercept = 0) +\nscale_x_continuous(\"wins\", breaks=0:3) +\nylab(\"Probability\") +\ntheme_bw()\n\nPMF.plot",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#cumulative-distribution-function",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#cumulative-distribution-function",
+    "title": "Lab Eight – Probability",
+    "section": "3.2 Cumulative Distribution Function",
+    "text": "3.2 Cumulative Distribution Function\nUse your daltbinom() function to create a paltbinom() function for computing the CDF of this distribution. Use your function to plot the distribution where \\(p=0.70\\) where \\(\\theta=0.50\\), \\(\\theta=1\\), and \\(\\theta=1.50\\).\nSolution:\n\n\n\nCode\npaltbinom &lt;- function(x, n, p, theta){\ni = 0:n\n\ncdf = sapply(x, function(x2) {\n  sum(daltbinom(i[i &lt;= x2], n, p, theta))\n})\n  return(cdf)\n}\n\n\n\n\n\n\nCode\nMBDDat = MBDDat |&gt;\n  mutate(CDF = paltbinom(x, n, 0.7, theta))\nCDF.plot &lt;- ggplot() +\ngeom_step(data=MBDDat, aes(x = x, y = CDF)) +\ngeom_point(data=MBDDat, aes(x = x, y = CDF)) +\ngeom_point(data=MBDDat |&gt; filter(x==1),\naes(x = x, y = CDF),\ncolor=\"darkorchid2\", size=0, alpha=0.50) +\ngeom_hline(yintercept = 0) +\nscale_x_continuous(\"wins\", breaks=0:10) +\nylab(\"Cumulative Probability\") +\ntheme_bw()\n\nCDF.plot",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#the-winning-probability",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#the-winning-probability",
+    "title": "Lab Eight – Probability",
+    "section": "3.3 The Winning Probability",
+    "text": "3.3 The Winning Probability\nCompute the probability that Player A wins the match using Altham’s Multiplicative Binomial Distribution. Compare your result to the Binomial and Negative Binomial results. Compare your results to the Beta-Binomial model, too. Make sure write out your probability statement and work to write it in terms of the distribution function (PMF/CDF) to plot the probability using ggplot.\nSolution: When theta is 1, it should have the same values as negative and normal binomial distributions because that is when the MBD has no skew to clusters, and will follow the similar curve. The beta binomial being inbetween theta = 1 and &gt; 1 makes sense because the beta distribution leans more towards the extreme values.\n\n\n\nCode\ntheta = c(0.5, 1, 1.5)\nprobs &lt;- sapply(theta, function(th) {\n  sum(daltbinom(2:3, n, 0.7, th))\n})\nnames(probs) &lt;- paste0(\"theta=\", theta)\nprobs\n\n\ntheta=0.5   theta=1 theta=1.5 \n0.8592417 0.7840000 0.7469930 \n\n\nCode\nprint(\"Binomial:\")\n\n\n[1] \"Binomial:\"\n\n\nCode\nwinner_A\n\n\n[1] 0.784\n\n\nCode\nprint(\"Negative Binomial:\")\n\n\n[1] \"Negative Binomial:\"\n\n\nCode\nnegative\n\n\n[1] 0.784\n\n\nCode\nprint(\"Beta-Binomial:\")\n\n\n[1] \"Beta-Binomial:\"\n\n\nCode\nwin_beta\n\n\n[1] 0.7636364",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-8-Probability/Lab8WriteUp.html#probability-mass-function-1",
+    "href": "Lab-8-Probability/Lab8WriteUp.html#probability-mass-function-1",
+    "title": "Lab Eight – Probability",
+    "section": "4.1 Probability Mass Function",
+    "text": "4.1 Probability Mass Function\nThe mass function for this distribution is below. \\[f_X(x) = \\left[\\int_{0}^1 dp\n\\left(\\frac{1}{c} {n \\choose x} p^x (1-p)^{n-x} \\theta^{x(n-x)}\\right)\\left(\\frac{\\Gamma(\\alpha+\\beta)}{\\Gamma(\\alpha)\\Gamma(\\beta)} p^{\\alpha-1}(1-p)^{\\beta-1}\\right)\\right]I(x \\in \\{0, 1, ..., n\\})\\]\nWrite a function in R called daltbbinom() for computing the PMF of this distribution. Use your function to plot the distribution where \\(\\alpha=7\\) and \\(\\beta=3\\) where \\(\\theta=0.50\\), \\(\\theta=1\\), and \\(\\theta=1.50\\). Comment on the differences in the context of a best two-out-of-three match.\n\nHint: You can use the integrate() in R to compute the integral. Note that this requires the function to be vectorized – it should be unless you have added any block conditionals.\nSolution:\n\n\n\nCode\ndaltbbinom = function(x, n, alpha, beta, theta){\n  right = gamma(alpha + beta) / (gamma(alpha) * gamma(beta))\n  one_x = function(xi) {\n    \n    integral = function(p) {\n      choose(n, xi) * p^(xi + alpha - 1) * (1 - p)^(n - xi + beta - 1) * theta^(xi * (n - xi)) * right\n    }\n    \n    integrate(integral, lower = 0, upper = 1)$value\n  }\n  \n  prob = sapply(x, one_x)\n  \n  return(prob / sum(prob))\n}\n(daltbbinom(x, n, 7, 3, theta))\n\n\n[1] 0.04265257 0.19970396 0.39936191 0.35828156\n\n\n\n\n\n\nCode\nAlthDat &lt;- tibble(x = 0:3) |&gt;\nmutate(PMF = daltbbinom(x, n, 7, 3, theta))\n\nPMF.plot &lt;- ggplot() +\ngeom_linerange(data = AlthDat,\naes(x = x, ymin = 0, ymax = daltbbinom(x, n, 7, 3, theta))) +\n\ngeom_linerange(data = AlthDat,\naes(x = x, ymin = 0, ymax = PMF),\ncolor = \"darkorchid2\", linewidth=0, alpha=0.50) +\ngeom_hline(yintercept = 0) +\nscale_x_continuous(\"Wins\", breaks=0:3) +\nylab(\"Probability\") +\ntheme_bw()\n\nPMF.plot",
+    "crumbs": [
+      "Lab Eight -- Probability"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "",
+    "text": "Tips\nTimeline",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#data-wrangling",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#data-wrangling",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "1.1 Data Wrangling",
+    "text": "1.1 Data Wrangling\n\n1.1.1 Part A\nGo to the website and download the source data https://www.nature.com/articles/s41467-025-68063-y#Sec30.\nDescribe the process – do not leave out any steps – for how you can load the data for Figure 3b from the manuscript into R.\nHint: You can use packages like readxl (Wickham and Bryan 2025) but you will find it substantially easier to open the .xls file using your computer’s spreadsheet software and create a new .csv file with the data you need.\nSolutions: I removed the top two headers of the data, then combined the data into two columns so that the data coould be rectangular by pasting the THP1 entries underneath the primary entries. Then i saved it as a csv within the same dictionary as this file so that i can access it and read it into a variable.\n\n\n\nCode\ndat.kitsburg = read.csv(\"Lab5-6_3B_DONE.csv\")\n\n\n\n\n\n1.1.2 Part B\nThe data need to be cleaned. Note that the sample type (Healthy Donor or THP-1), cell type (Monocytes or Macrophages), and treatment (12 Hours Post-Infection or Uninfected) are all recorded in one column sample, separated with underscores. Use separate(...) from the tidyverse package to separate the sample column into the SampleType, CellType, Treatment columns. Save the object as dat.kitsberg.cleaned.\nHint: Use ?separate(...) to see how it works.\nSolution:\n\n\n\nCode\ndat.kitsburg.cleaned = dat.kitsburg |&gt; separate(sample, into = c(\"SampleType\", \"CellType\", \"Treatment\"), sep = \"_\")\n\n\n\n\n\n1.1.3 Part C\nThe researchers are only interested in observations in the treatment group (12hpi). Remove uninfected samples from the data. Update dat.kitsberg.cleaned with the result.\nHint: I would use the filter(...) function.\nSolution:\n\n\n\nCode\ndat.kitsburg.cleaned = dat.kitsburg.cleaned |&gt; filter(Treatment == \"12hpi\")\n\n\n\n\n\n1.1.4 Part D\nWhen CellType is “MDM”, it is a Monocyte-Derived Macrophages. That is, the cell type should be macrophages which is coded as “mac”. Update dat.kitsberg.cleaned with the result.\nHint: I would use the mutate(...) function. You will likely find if_else(...) or case_when(...) helpful.\nSolution:\n\n\n\nCode\ndat.kitsburg.cleaned = dat.kitsburg.cleaned |&gt; mutate(CellType = if_else(CellType == \"MDM\", \"mac\", CellType))",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#part-e",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#part-e",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "1.2 Part E",
+    "text": "1.2 Part E\nThe researchers are only interested in monocytes and macrophages. Remove any other cell types. Update dat.kitsberg.cleaned with the result.\nHint: I would use the filter(...) function.\nSolution:\n\n\n\nCode\ndat.kitsburg.cleaned = dat.kitsburg.cleaned |&gt; filter(CellType == \"mac\" | CellType == \"mono\")",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#part-f",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#part-f",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "1.3 Part F",
+    "text": "1.3 Part F\nClean up the data entry. Replace the shorthand the researchers used with the neat sample type (Healthy Donor or THP-1), cell type (Monocytes or Macrophages), and treatment (12 Hours Post-Infection or Uninfected). Update dat.kitsberg.cleaned with the result.\nHint: I would use the mutate(...) function. You will likely find if_else(...) or case_when(...) helpful.\nSolution:\n\n\n\nCode\ndat.kitsburg.cleaned = dat.kitsburg.cleaned |&gt; \n  mutate(CellType = if_else(CellType == \"mac\", \"Macrophages\", \"Monophages\")) |&gt;\n  mutate(Treatment = \"12 Hours Post-Infection\") |&gt;\n  mutate(SampleType = if_else(SampleType == \"primary\", \"Healthy Donor\", \"THP-1\"))",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#part-g",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#part-g",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "1.4 Part G",
+    "text": "1.4 Part G\nIn an R code block, combine your answers into one code block that completes the full cleaning process. Save the object as dat.kitsberg.cleaned.\nNote: You will use this in the next section\nSolution:\n\n\n\nCode\ndat.kitsburg.cleaned = dat.kitsburg |&gt; \n  separate(sample, into = c(\"SampleType\", \"CellType\", \"Treatment\"), sep = \"_\") |&gt;\n  filter(Treatment == \"12hpi\") |&gt;\n  mutate(CellType = if_else(CellType == \"MDM\", \"mac\", CellType)) |&gt;\n  filter(CellType == \"mac\" | CellType == \"mono\") |&gt;\n  mutate(CellType = if_else(CellType == \"mac\", \"Macrophages\", \"Monophages\")) |&gt;\n  mutate(Treatment = \"12 Hours Post-Infection\") |&gt;\n  mutate(SampleType = if_else(SampleType == \"primary\", \"Healthy Donor\", \"THP-1\"))",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#data-summaries",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#data-summaries",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "1.5 Data Summaries",
+    "text": "1.5 Data Summaries\n\n1.5.1 Part A\nRecreate Figure 3b as depicted in the paper (see https://www.nature.com/articles/s41467-025-68063-y#Fig3). You can ignore the significance comparison because we haven’t done that yet.\nHint: I would use geom_violin(...) for Figure 3b I also expect your plots to look nicer – better labels, better scaling, etc. Don’t forget to use the proper formatting using the syntax in the Quarto cheatsheet.\nSolution:\n\n\n\nCode\nggplot(data = dat.kitsburg.cleaned) +\n  geom_violin(aes(y = viruses.within.nucleus, x = CellType), width = 1.2, fill = \"lightgrey\") +\n  theme_bw() +\n  labs(x = \"Primary\", y = \"Viruses Within Nucleus\") +\n  geom_boxplot(aes(y = viruses.within.nucleus, x = CellType), width = 0.05) +\n  facet_wrap(~SampleType, scales = \"free_y\") +\n  theme_bw() +\n  labs(x = \"Cell Type\", y = \"Viruses Within Nucleus\")\n\n\n\n\n\n\n\n\n\n\n\n\n1.5.2 Part B\nCompute a table containing relevant numerical summaries for Figure 3b.\nHint: I would use group_by(...) and summarize(...) to complete this. Don’t forget to use the proper formatting using knitr::kable(...) as described in the Quarto Cheatsheet.\nSolution:\n\n\n\nCode\nkitsburg.summary &lt;- dat.kitsburg.cleaned |&gt;\n  group_by(SampleType, CellType) |&gt;\n  summarize(\n    n = n(),\n    Mean = mean(viruses.within.nucleus, na.rm = T),\n    SD = sd(viruses.within.nucleus, na.rm = T),\n    Median = median(viruses.within.nucleus, na.rm = T),\n    IQR = IQR(viruses.within.nucleus, na.rm = T)\n  )\n\n\n\n\n\n\n\nViruses Within Nucleus.\n\n\nSampleType\nCellType\nn\nMean\nSD\nMedian\nIQR\n\n\n\n\nHealthy Donor\nMacrophages\n93\n0.37\n0.60\n0\n1\n\n\nHealthy Donor\nMonophages\n87\n0.01\n0.11\n0\n0\n\n\nTHP-1\nMacrophages\n170\n0.33\n0.57\n0\n1\n\n\nTHP-1\nMonophages\n112\n0.04\n0.25\n0\n0",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#data-wrangling-1",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#data-wrangling-1",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "2.1 Data Wrangling",
+    "text": "2.1 Data Wrangling\n\n2.1.1 Part A\nI downloaded the data from linked in the article (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0319073). I have included the data in this lab folder as ShipValuation-Bal25.csv. Load the data into R.\nSolution:\n\n\n\nCode\ndat.bal = read.csv(\"ShipValuation-Bal25.csv\")\n\n\n\n\n\n2.1.2 Part B\nThe price of each Supramax and Ultramax ship is reported on the \\(\\log_{10}\\) scale. Create a new column called price that contains the price in millions of dollars. \\[\\text{Price} = \\frac{10^{\\text{SPLog}}}{1000000}\\] Save the object as dat.bal.cleaned.\nHint: I would use the mutate(...) function.\nSolution:\n\n\n\nCode\ndat.bal.cleaned = dat.bal |&gt; mutate(Price = (10^SPLog)/1000000)\n\n\n\n\n\n2.1.3 Part C\nThe authors recorded the country that each Supramax or Ultramax ship was built in in the columns Japan, China, People's Republic Of, Philippines, Korea, South, Others Country Build. These columns are marked 1 to indicate that is the country of origin and 0 otherwise. Create a new column called OriginCountry that contains a clean labels for the country in which the ship was built. Update dat.bal.cleaned with the result.\nHint: I would use the mutate(...) function. You will likely find if_else(...) or case_when(...) helpful.\nSolution:\n\n\n\nCode\ndat.bal.cleaned = dat.bal.cleaned |&gt; mutate(OriginCountry = \n                                if_else(Japan == 1,\"Japan\", \n                                if_else(China..People.s.Republic.Of == 1, \"China, People's Republic Of\", \n                                if_else(Philippines == 1, \"Philippines\",\n                                if_else(Korea..South == 1, \"Korea, South\", \"Other Countries Build\")))))\n\n\n\n\n\n2.1.4 Part D\nThe authors recorded each Supramax and Ultramax ship’s main engine manufacturer in the columns Caterpillar, MAN-B&W, Wartsila, Mitsubishi. These columns are marked 1 to indicate that is the manufacturer and 0 otherwise. Create a new column called Manufacturer that contains a clean labels for the manufacturer. Update dat.bal.cleaned with the result.\nHint: Follow the logic of the previous question.\nSolution:\n\n\n\nCode\ndat.bal.cleaned = dat.bal.cleaned |&gt; mutate(Manufacturer = \n                                if_else(Caterpillar == 1,\"Caterpillar\", \n                                if_else(MAN.B.W == 1, \"MAN-B&W\", \n                                if_else(Wartsila == 1, \"Wartsila\", \"Mitsubishi\"))))\n\n\n\n\n\n2.1.5 Part E\nThe researchers recorded whether each Supramax and Ultramax ship is currently covered by a Protection and Indemnity (P&I) Club. This can be an indicator that a ship meets the minimum seaworthiness and safety requirements of the insurer.\nThe authors recorded P&I clubs in the columns Japan P&I Club, Gard, West of England, North of England, UK P&I, Britannia P&I, London P&I Club, Skuld, Steamship Mutual, Others, Unknown. These columns are marked 1 to indicate that the ship is insured by that P&I club and 0 otherwise. Create a new column called PI.club that contains a clean labels for the P&I club. Update dat.bal.cleaned with the result.\nHint: Follow the logic of the previous questions.\nSolution:\n\n\n\nCode\ndat.bal.cleaned = dat.bal.cleaned |&gt; mutate(PI.club = \n                                if_else(Japan.P.I.Club == 1, \"Japan P&I Club\", \n                                if_else(Gard == 1, \"Gard\", \n                                if_else(West.of.England == 1, \"West of England\", \n                                if_else(North.of.England == 1, \"North of England\", \n                                if_else(UK.P.I == 1, \"UK P&I\", \n                                if_else(Britannia.P.I == 1, \"Britannia P&I\", \n                                if_else(London.P.I.Club == 1, \"London P&I Club\", \n                                 if_else(Skuld == 1, \"Skuld\", \n                                if_else(Steamship.Mutual == 1, \"Steamship Mutual\", \n                                if_else(Others == 1, \"Others\", \"Unknown\")))))))))))\n\n\n\n\n\n2.1.6 Part F\nThe researchers recorded whether each Supramax and Ultramax ship is classed by a society that requires a ship to be safe, structurally sound, and built/maintained to specific engineering standards.\nThe authors recorded class society in the columns Nippon Kaiji Kyokai (IACS), Lloyd's Register, Bureau Veritas (IACS), Det Norske Veritas (IACS), American Bureau of Shipping (IACS), Others Class, With Two Classes, Disclassed. These columns are marked 1 to indicate that the ship is classed by that soceity and 0 otherwise. Create a new column called Class that contains a clean labels for the class. Update dat.bal.cleaned with the result.\nHint: Follow the logic of the previous questions.\nSolution:\n\n\n\nCode\ndat.bal.cleaned = dat.bal.cleaned |&gt; mutate(Class = \n                                if_else(Nippon.Kaiji.Kyokai..IACS. == 1,\"Nippon Kaiji Kyokai (IACS)\", \n                                if_else(Lloyd.s.Register == 1, \"Lloyd's Register\", \n                                if_else(Bureau.Veritas..IACS. == 1, \"Bureau Veritas (IACS)\", \n                                if_else(Det.Norske.Veritas..IACS. == 1, \"Det Norske Veritas (IACS)\", \n                                if_else(American.Bureau.of.Shipping..IACS. == 1, \"American Bureau of Shippin(IACS)\", \n                                if_else(Others.Class == 1, \"Others Class\", \n                                if_else(With.Two.Classes == 1, \"With Two Classes\", \"Disclassed\"))))))))\n\n\n\n\n\n2.1.7 Part G\nThe researchers recorded the flag state of each Supramax and Ultramax ship. Each flag state enforces its own set of safety, environmental, and crew welfare rules and regulations. Ships under certain flag states may be more or less valuable depending on how much the flag affects the buyer’s trust in the condition of the boat.\nThe authors recorded flag states in the columns Panama, Marshall Islands, Liberia, Malta, Hong Kong, China, Singapore, Others Flag, With two flags. These columns are marked 1 to indicate that the ship has that flag state and 0 otherwise. Create a new column called FlagState that contains a clean labels for the flag state. Update dat.bal.cleaned with the result.\nHint: Follow the logic of the previous questions.\n\n\n\nCode\ndat.bal.cleaned = dat.bal.cleaned |&gt; mutate(FlagState = \n                                if_else(Panama == 1, \"Panama\", \n                                if_else(Marshall.Islands == 1, \"Marshall Islands\", \n                                if_else(Liberia == 1, \"Liberia\", \n                                if_else(Malta == 1, \"Malta\", \n                                if_else(Hong.Kong..China == 1, \"Hong Kong, China\", \n                                if_else(Singapore == 1, \"Singapore\", \n                                if_else(Others.Flag == 1, \"Others Flag\", \"With two flags\"))))))))",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#part-h",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#part-h",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "2.2 Part H",
+    "text": "2.2 Part H\nIn an R code block, combine your answers into one code block that completes the full cleaning process. Save the object as dat.bal.cleaned.\nNote: You will use this in the next section\nSolution:\n\n\n\nCode\ndat.bal.cleaned = dat.bal |&gt; mutate(Price = (10^SPLog)/1000000) |&gt;\n                             mutate(OriginCountry = \n                                if_else(Japan == 1,\"Japan\", \n                                if_else(China..People.s.Republic.Of == 1, \"China, People's Republic Of\", \n                                if_else(Philippines == 1, \"Philippines\",\n                                if_else(Korea..South == 1, \"Korea, South\", \"Other Countries Build\"))))) |&gt;\n                            mutate(Manufacturer = \n                                if_else(Caterpillar == 1,\"Caterpillar\", \n                                if_else(MAN.B.W == 1, \"MAN-B&W\", \n                                if_else(Wartsila == 1, \"Wartsila\", \"Mitsubishi\")))) |&gt;\n                            mutate(PI.club = \n                                if_else(Japan.P.I.Club == 1, \"Japan P&I Club\", \n                                if_else(Gard == 1, \"Gard\", \n                                if_else(West.of.England == 1, \"West of England\", \n                                if_else(North.of.England == 1, \"North of England\", \n                                if_else(UK.P.I == 1, \"UK P&I\", \n                                if_else(Britannia.P.I == 1, \"Britannia P&I\", \n                                if_else(London.P.I.Club == 1, \"London P&I Club\", \n                                if_else(Skuld == 1, \"Skuld\", \n                                if_else(Steamship.Mutual == 1, \"Steamship Mutual\", \n                                if_else(Others == 1, \"Others\", \"Unknown\"))))))))))) |&gt;\n                            mutate(Class = \n                                if_else(Nippon.Kaiji.Kyokai..IACS. == 1,\"Nippon Kaiji Kyokai (IACS)\", \n                                if_else(Lloyd.s.Register == 1, \"Lloyd's Register\", \n                                if_else(Bureau.Veritas..IACS. == 1, \"Bureau Veritas (IACS)\", \n                                if_else(Det.Norske.Veritas..IACS. == 1, \"Det Norske Veritas (IACS)\", \n                                if_else(American.Bureau.of.Shipping..IACS. == 1, \"American Bureau of Shipping (IACS)\", \n                                if_else(Others.Class == 1, \"Others Class\", \n                                if_else(With.Two.Classes == 1, \"With Two Classes\", \"Disclassed\")))))))) |&gt;\n                            mutate(FlagState = \n                                if_else(Panama == 1, \"Panama\", \n                                if_else(Marshall.Islands == 1, \"Marshall Islands\", \n                                if_else(Liberia == 1, \"Liberia\", \n                                if_else(Malta == 1, \"Malta\", \n                                if_else(Hong.Kong..China == 1, \"Hong Kong, China\", \n                                if_else(Singapore == 1, \"Singapore\", \n                                if_else(Others.Flag == 1, \"Others Flag\", \"With two flags\"))))))))",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  },
+  {
+    "objectID": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#data-summaries-1",
+    "href": "Lab-5-6-Data-Wrangling/Lab5WriteUp.html#data-summaries-1",
+    "title": "Lab Five-Six – Data Wrangling in R",
+    "section": "2.3 Data Summaries",
+    "text": "2.3 Data Summaries\nFirst, I provide a short description of the other variables in their data. Note that the size ordering of types of ships discussed below is:\n\\[\\text{Handysize} &lt; \\text{Supramax} &lt; \\text{Ultramax} &lt; \\text{Panamax} &lt; \\text{Capesize}\\]\n\nDWT: The deadweight tonnage, which is the maximum weight each Supramax and Ultramax ship can safely carry in metric tons. This gives a measure of how much cargo, fuel, fresh water, ballast water, provisions, and crew a ship can handle.\nYas: The age in years. New Supramax and Ultramax ships were recorded as having age 1.\nEnginges RPM: Revolutions per minute of each Supramax and Ultramax ship’s main propulsion engine. Generally speaking, lower-RPM engines are more expensive because they are more fuel efficient.\nBACI: The Baltic Capesize Index. This describes freight rates for Capesize dry bulk ships, which reflects supply and demand. When BACI is high, Capesize ships are more profitable in shipping, which could positively affect Supramax and Ultramax ship values as demand for dry bulk commodities might be high and large shipments could be split into several Supramax and Ultramax shipments.\nNote: This reports the current BACI. The data also contain the BACI form 1, 2, and 3 months before the sale (BACI-1, BACI-2, BACI-3).\nBPNI: The Baltic Panamax Index. This describes the cost to ship dry bulk commodities (e.g., coal or grain) on Panamax class ships. When BPNI is high, we expect Panamax ship prices to go up. Supramax and Ultramax ship values tend to follow this trend as charterers switch to these smaller vessels when Panamax rates become too expensive.\nNote: This reports the current BPNI. The data also contain the BPNI form 1, 2, and 3 months before the sale (BPNI-1, BPNI-2, BPNI-3).\nBSIS: The Baltic Supramax Index. This describes freight rates for Supramax vessels, which reflects supply and demand. When BSIS is high, Supramax and Ultramax prices are usually higher because they are more profitable in shipping.\nNote: This reports the current BSIS. The data also contain the BSIS form 1, 2, and 3 months before the sale (BSIS-1, BSIS-2, BSIS-3).\nBHSI: The Baltic Handysize Index. This describes freight rates for handysize vessels. When BHSI is high, Supramax and Ultramax ship prices are usually higher because the prices move together.\nNote: This reports the current BHSI. The data also contain the BHSI form 1, 2, and 3 months before the sale (BHSI-1, BHSI-2, BHSI-3).\nLIBOR: The London InterBank Offered Rate. This describes the average reported interest rate at which banks would lend US dollars for 3 months.\n\n\n2.3.1 Part A\nChoose a categorical variable. Create a plot and corresponding numerical summary to assess whether or how ship prices vary across the levels of the selected categorical variable.\nSolution:\n\n\n\nCode\nggplot(data = dat.bal.cleaned |&gt; filter(!is.na(Price))) +\n  geom_violin(aes(x = OriginCountry, y = Price)) +\n  theme_bw() +\n  labs(\n    x = \"Ship Origin Country\",\n    y = \"Ship Price (Million USD)\",\n    title = \"Ship Prices by Origin Country\") +\n  geom_boxplot(aes(x = OriginCountry, y = Price), width = 0.22) +\n  theme_bw() +\n  labs(\n    x = \"Ship Origin Country\",\n    y = \"Ship Price (Million USD)\",\n    title = \"Ship Prices by Origin Country\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nbal.summary &lt;- dat.bal.cleaned |&gt; filter(!is.na(Price)) |&gt;\n  group_by(OriginCountry) |&gt;\n  summarize(\n    n = n(),\n    Mean = mean(Price, na.rm = T),\n    SD = sd(Price, na.rm = T),\n    Median = median(Price, na.rm = T),\n    IQR = IQR(Price, na.rm = T)\n  )\n\n\n\n\n\n\n\n\nTable 1: Viruses Within Nucleus.\n\n\n\n\n\n\nOriginCountry\nn\nMean\nSD\nMedian\nIQR\n\n\n\n\nChina, People’s Republic Of\n613\n16.80\n10.39\n14.50\n10.65\n\n\nJapan\n898\n16.86\n11.85\n14.20\n13.70\n\n\nKorea, South\n75\n14.64\n10.32\n11.20\n11.45\n\n\nOther Countries Build\n103\n11.80\n7.38\n9.40\n8.42\n\n\nPhilippines\n130\n17.07\n10.26\n14.35\n10.87\n\n\n\n\n\n\n\n\n\n\n\n2.3.2 Part B\nChoose a quantitative variable. Create a plot and corresponding numerical summary to assess whether or how ship prices vary with the selected quantitative variable.\nSolution:\n\n\n\nCode\nggplot(data = dat.bal.cleaned |&gt; filter(!is.na(Price) & !is.na(DWT)) |&gt;\n                                  mutate(DWT = as.numeric(gsub(\",\", \"\", DWT))) |&gt; \n                                  mutate(DWT_bin = cut(DWT, breaks = 5))) +\n  geom_point(aes(x = DWT, y = Price)) +\n  theme_bw() +\n  labs(\n    x = \"Deadweight Tonnage\",\n    y = \"Ship Price (Million USD)\",\n    title = \"Ship Prices by Deadwight Tonnage\") +\n  geom_smooth(aes(x = DWT, y = Price)) +\n  theme_bw() +\n  labs(\n    x = \"Deadweight Tonnage\",\n    y = \"Ship Price (Million USD)\",\n    title = \"Ship Prices by Deadweight Tonnage\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nCode\nlibrary(\"scales\")\nbal.summary &lt;- dat.bal.cleaned |&gt; filter(!is.na(Price) & !is.na(DWT)) |&gt;\n                                  mutate(DWT = as.numeric(gsub(\",\", \"\", DWT))) |&gt;\n                                  mutate(DWT.Range = cut(round(DWT, -3), breaks = 5)) |&gt;\n    group_by(DWT.Range) |&gt;\n    summarise(\n    n = n(),\n    Mean = mean(Price),\n    SD = sd(Price),\n    Median = median(Price),\n    IQR = IQR(Price),\n    Spearman_Correlation = cor(DWT, Price, method = \"spearman\")\n) |&gt;\nmutate(DWT.Range = as.character(DWT.Range),\n         DWT.Range = gsub(\"\\\\(\", \"\", DWT.Range),\n         DWT.Range = gsub(\"\\\\]\", \"\", DWT.Range),\n         DWT.Range = gsub(\",\", \" – \", DWT.Range),\n         DWT.Range = comma(as.numeric(sub(\" .*\", \"\", DWT.Range))) %&gt;% paste0(\" – \", \n                          comma(as.numeric(sub(\".* – \", \"\", DWT.Range)))))\n\n\n\nNOTE: I had trouble getting the range to look good in the table so I had to use google and AI to help the formatting lines 14-19. I downloaded the “scales” package to use the comma() funciton which fixed the issue and made the range look normal.\n\n\n\n\nDeadweight Tonnage and Price Summary.\n\n\n\n\n\n\n\n\n\n\n\nDWT.Range\nn\nMean\nSD\nMedian\nIQR\nSpearman_Correlation\n\n\n\n\n50,000 – 53,600\n540\n16.60\n13.65\n11.42\n14.90\n0.11\n\n\n53,600 – 57,200\n672\n15.98\n10.68\n13.00\n8.30\n-0.09\n\n\n57,200 – 60,800\n207\n17.41\n8.01\n15.30\n7.55\n0.00\n\n\n60,800 – 64,400\n295\n18.44\n7.85\n19.00\n10.00\n-0.18\n\n\n64,400 – 68,000\n105\n11.65\n9.48\n7.00\n10.00\n0.17",
+    "crumbs": [
+      "Lab Five-Six -- Data Wrangling in R"
+    ]
+  }
+]
