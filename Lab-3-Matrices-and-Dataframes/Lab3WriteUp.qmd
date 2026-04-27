@@ -353,7 +353,7 @@ ggplot() +
 ```{r}
 #| size: "scriptsize"
 #| code-fold: FALSE
-(determinant_A = det(A))
+(determinant_A = det(T))
 ```
 *This area is the same as the area of the original transformation of $A$ without using the $k$ in matrix $M$. This is correct since transformations do not effect area. It is taller than the original.*
 
@@ -407,7 +407,7 @@ ggplot() +
 ```{r}
 #| size: "scriptsize"
 #| code-fold: FALSE
-(determinant_A = det(A))
+(determinant_A = det(T))
 ```
 *This area is the same as the area of the original transformation of $A$ without using the $k$ in matrix $M$. This is correct since transformations do not effect area. It is skinnier and taller than the original.*
 
@@ -461,9 +461,9 @@ ggplot() +
 ```{r}
 #| size: "scriptsize"
 #| code-fold: FALSE
-(determinant_A = det(A))
+(determinant_T = det(T))
 ```
-*This area is the same as the area of the original transformation of $A$ without using the $k$ in matrix $M$. This is correct since transformations do not effect area. It is considerablly more skinny and tall than the original.*
+*This area is the same as the area of the original transformation of $A$ without using the $k$ in matrix $M$. This is correct since this transformation did not effect area. It is considerablly more skinny and tall than the original.*
 
 # Question 4
 
@@ -488,7 +488,9 @@ Create a data frame `ladder` with the following data. Note your data frame shoul
 ```{r}
 #| size: "scriptsize"
 #| code-fold: FALSE
-(ladder = data.frame(x=c(0,0,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1),y=c(0,20,0,20,2,2,4,4,6,6,8,8,10,10,12,12,14,14,16,16,18,18),group=c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11)))
+(ladder = data.frame(x=c(0,0,1,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1),
+          y=c(0,20,0,20,2,2,4,4,6,6,8,8,10,10,12,12,14,14,16,16,18,18),
+          group=c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11)))
 ```
 
 ## Part b

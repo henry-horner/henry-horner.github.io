@@ -697,7 +697,7 @@ Figure&nbsp;4: The T-3 square.
 <p></p>
 <p></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>(<span class="at">determinant_A =</span> <span class="fu">det</span>(A))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>(<span class="at">determinant_A =</span> <span class="fu">det</span>(T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 44</code></pre>
 </div>
@@ -788,7 +788,7 @@ Figure&nbsp;5: The T-4 square.
 <p></p>
 <p></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a>(<span class="at">determinant_A =</span> <span class="fu">det</span>(A))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a>(<span class="at">determinant_A =</span> <span class="fu">det</span>(T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 44</code></pre>
 </div>
@@ -879,12 +879,12 @@ Figure&nbsp;6: The T-5 square.
 <p></p>
 <p></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a>(<span class="at">determinant_A =</span> <span class="fu">det</span>(A))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a>(<span class="at">determinant_T =</span> <span class="fu">det</span>(T))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 44</code></pre>
+<pre><code>[1] 33</code></pre>
 </div>
 </div>
-<p> <em>This area is the same as the area of the original transformation of <span class="math inline">\(A\)</span> without using the <span class="math inline">\(k\)</span> in matrix <span class="math inline">\(M\)</span>. This is correct since transformations do not effect area. It is considerablly more skinny and tall than the original.</em></p>
+<p> <em>This area is the same as the area of the original transformation of <span class="math inline">\(A\)</span> without using the <span class="math inline">\(k\)</span> in matrix <span class="math inline">\(M\)</span>. This is correct since this transformation did not effect area. It is considerablly more skinny and tall than the original.</em></p>
 </section>
 </section>
 <section id="question-4" class="level1" data-number="4">
@@ -997,7 +997,9 @@ Figure&nbsp;6: The T-5 square.
 <p><strong>Solution:</strong></p>
 <p></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a>(<span class="at">ladder =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">18</span>,<span class="dv">18</span>),<span class="at">group=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">11</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a>(<span class="at">ladder =</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb107-2"><a href="#cb107-2"></a>          <span class="at">y=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">12</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">16</span>,<span class="dv">16</span>,<span class="dv">18</span>,<span class="dv">18</span>),</span>
+<span id="cb107-3"><a href="#cb107-3"></a>          <span class="at">group=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">11</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   x  y group
 1  0  0     1
