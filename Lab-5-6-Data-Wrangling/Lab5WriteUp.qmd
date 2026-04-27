@@ -97,7 +97,7 @@ Describe the process -- do not leave out any steps -- for how you can load the d
 **Hint**: You can use packages like `readxl` [@readxl] but you will find it substantially easier to open the `.xls` file using your computer's spreadsheet software and create a new `.csv` file with the data you need.
 
 **Solutions:**
-I removed the top two headers of the data, then combined the data into two columns so that the data coould be rectangular by pasting the THP1 entries underneath the primary entries. Then i saved it as a csv within the same dictionary as this file so that i can access it and read it into a variable.
+I removed the top two headers of the data, then combined the data into two columns so that the data could be rectangular by pasting the THP1 entries underneath the primary entries. Then i saved it as a csv within the same dictionary as this file so that i can access it and read it into a variable.
 ```{r}
 dat.kitsburg = read.csv("Lab5-6_3B_DONE.csv")
 ```
@@ -109,7 +109,8 @@ The data need to be cleaned. Note that the sample type (Healthy Donor or THP-1),
 
 **Solution:**
 ```{r}
-dat.kitsburg.cleaned = dat.kitsburg |> separate(sample, into = c("SampleType", "CellType", "Treatment"), sep = "_")
+dat.kitsburg.cleaned = dat.kitsburg |>
+       separate(sample, into = c("SampleType", "CellType", "Treatment"), sep = "_")
 ```
 
 ### Part C
@@ -119,7 +120,8 @@ The researchers are only interested in observations in the treatment group (12hp
 
 **Solution:**
 ```{r}
-dat.kitsburg.cleaned = dat.kitsburg.cleaned |> filter(Treatment == "12hpi")
+dat.kitsburg.cleaned = dat.kitsburg.cleaned |> 
+        filter(Treatment == "12hpi")
 ```
 
 ### Part D
@@ -129,7 +131,8 @@ When `CellType` is "MDM", it is a Monocyte-Derived Macrophages. That is, the cel
 
 **Solution:**
 ```{r}
-dat.kitsburg.cleaned = dat.kitsburg.cleaned |> mutate(CellType = if_else(CellType == "MDM", "mac", CellType))
+dat.kitsburg.cleaned = dat.kitsburg.cleaned |> 
+        mutate(CellType = if_else(CellType == "MDM", "mac", CellType))
 ```
 
 ## Part E
@@ -139,7 +142,8 @@ The researchers are only interested in monocytes and macrophages. Remove any oth
 
 **Solution:**
 ```{r}
-dat.kitsburg.cleaned = dat.kitsburg.cleaned |> filter(CellType == "mac" | CellType == "mono")
+dat.kitsburg.cleaned = dat.kitsburg.cleaned |> 
+        filter(CellType == "mac" | CellType == "mono")
 ```
 
 ## Part F
@@ -150,9 +154,9 @@ Clean up the data entry. Replace the shorthand the researchers used with the nea
 **Solution:**
 ```{r}
 dat.kitsburg.cleaned = dat.kitsburg.cleaned |> 
-  mutate(CellType = if_else(CellType == "mac", "Macrophages", "Monophages")) |>
-  mutate(Treatment = "12 Hours Post-Infection") |>
-  mutate(SampleType = if_else(SampleType == "primary", "Healthy Donor", "THP-1"))
+        mutate(CellType = if_else(CellType == "mac", "Macrophages", "Monocytes")) |>
+        mutate(Treatment = "12 Hours Post-Infection") |>
+        mutate(SampleType = if_else(SampleType == "primary", "Healthy Donor", "THP-1"))
 ```
 
 ## Part G
@@ -163,13 +167,13 @@ In an `R` code block, combine your answers into one code block that completes th
 **Solution:**
 ```{r}
 dat.kitsburg.cleaned = dat.kitsburg |> 
-  separate(sample, into = c("SampleType", "CellType", "Treatment"), sep = "_") |>
-  filter(Treatment == "12hpi") |>
-  mutate(CellType = if_else(CellType == "MDM", "mac", CellType)) |>
-  filter(CellType == "mac" | CellType == "mono") |>
-  mutate(CellType = if_else(CellType == "mac", "Macrophages", "Monophages")) |>
-  mutate(Treatment = "12 Hours Post-Infection") |>
-  mutate(SampleType = if_else(SampleType == "primary", "Healthy Donor", "THP-1"))
+        separate(sample, into = c("SampleType", "CellType", "Treatment"), sep = "_") |>
+        filter(Treatment == "12hpi") |>
+        mutate(CellType = if_else(CellType == "MDM", "mac", CellType)) |>
+        filter(CellType == "mac" | CellType == "mono") |>
+        mutate(CellType = if_else(CellType == "mac", "Macrophages", "Monocytes")) |>
+        mutate(Treatment = "12 Hours Post-Infection") |>
+        mutate(SampleType = if_else(SampleType == "primary", "Healthy Donor", "THP-1"))
 ```
 
 ## Data Summaries
@@ -258,10 +262,10 @@ The authors recorded the country that each Supramax or Ultramax ship was built i
 **Solution:**
 ```{r}
 dat.bal.cleaned = dat.bal.cleaned |> mutate(OriginCountry = 
-                                if_else(Japan == 1,"Japan", 
-                                if_else(China..People.s.Republic.Of == 1, "China, People's Republic Of", 
-                                if_else(Philippines == 1, "Philippines",
-                                if_else(Korea..South == 1, "Korea, South", "Other Countries Build")))))
+                      if_else(Japan == 1,"Japan", 
+                      if_else(China..People.s.Republic.Of == 1, "China, People's Republic Of", 
+                      if_else(Philippines == 1, "Philippines",
+                      if_else(Korea..South == 1, "Korea, South", "Other Countries Build")))))
 ```
 
 ### Part D
@@ -309,13 +313,13 @@ The authors recorded class society in the columns `Nippon Kaiji Kyokai (IACS)`, 
 **Solution:**
 ```{r}
 dat.bal.cleaned = dat.bal.cleaned |> mutate(Class = 
-                                if_else(Nippon.Kaiji.Kyokai..IACS. == 1,"Nippon Kaiji Kyokai (IACS)", 
-                                if_else(Lloyd.s.Register == 1, "Lloyd's Register", 
-                                if_else(Bureau.Veritas..IACS. == 1, "Bureau Veritas (IACS)", 
-                                if_else(Det.Norske.Veritas..IACS. == 1, "Det Norske Veritas (IACS)", 
-                                if_else(American.Bureau.of.Shipping..IACS. == 1, "American Bureau of Shippin(IACS)", 
-                                if_else(Others.Class == 1, "Others Class", 
-                                if_else(With.Two.Classes == 1, "With Two Classes", "Disclassed"))))))))
+                        if_else(Nippon.Kaiji.Kyokai..IACS. == 1,"Nippon Kaiji Kyokai (IACS)", 
+                        if_else(Lloyd.s.Register == 1, "Lloyd's Register", 
+                        if_else(Bureau.Veritas..IACS. == 1, "Bureau Veritas (IACS)", 
+                        if_else(Det.Norske.Veritas..IACS. == 1, "Det Norske Veritas (IACS)", 
+                        if_else(American.Bureau.of.Shipping..IACS. == 1, "American Bureau of Shippin(IACS)", 
+                        if_else(Others.Class == 1, "Others Class", 
+                        if_else(With.Two.Classes == 1, "With Two Classes", "Disclassed"))))))))
 ```
 
 ### Part G
@@ -343,43 +347,42 @@ In an `R` code block, combine your answers into one code block that completes th
 
 **Solution:**
 ```{r}
-dat.bal.cleaned = dat.bal |> mutate(Price = (10^SPLog)/1000000) |>
-                             mutate(OriginCountry = 
-                                if_else(Japan == 1,"Japan", 
-                                if_else(China..People.s.Republic.Of == 1, "China, People's Republic Of", 
-                                if_else(Philippines == 1, "Philippines",
-                                if_else(Korea..South == 1, "Korea, South", "Other Countries Build"))))) |>
-                            mutate(Manufacturer = 
-                                if_else(Caterpillar == 1,"Caterpillar", 
-                                if_else(MAN.B.W == 1, "MAN-B&W", 
-                                if_else(Wartsila == 1, "Wartsila", "Mitsubishi")))) |>
-                            mutate(PI.club = 
-                                if_else(Japan.P.I.Club == 1, "Japan P&I Club", 
-                                if_else(Gard == 1, "Gard", 
-                                if_else(West.of.England == 1, "West of England", 
-                                if_else(North.of.England == 1, "North of England", 
-                                if_else(UK.P.I == 1, "UK P&I", 
-                                if_else(Britannia.P.I == 1, "Britannia P&I", 
-                                if_else(London.P.I.Club == 1, "London P&I Club", 
-                                if_else(Skuld == 1, "Skuld", 
-                                if_else(Steamship.Mutual == 1, "Steamship Mutual", 
-                                if_else(Others == 1, "Others", "Unknown"))))))))))) |>
-                            mutate(Class = 
-                                if_else(Nippon.Kaiji.Kyokai..IACS. == 1,"Nippon Kaiji Kyokai (IACS)", 
-                                if_else(Lloyd.s.Register == 1, "Lloyd's Register", 
-                                if_else(Bureau.Veritas..IACS. == 1, "Bureau Veritas (IACS)", 
-                                if_else(Det.Norske.Veritas..IACS. == 1, "Det Norske Veritas (IACS)", 
-                                if_else(American.Bureau.of.Shipping..IACS. == 1, "American Bureau of Shipping (IACS)", 
-                                if_else(Others.Class == 1, "Others Class", 
-                                if_else(With.Two.Classes == 1, "With Two Classes", "Disclassed")))))))) |>
-                            mutate(FlagState = 
-                                if_else(Panama == 1, "Panama", 
-                                if_else(Marshall.Islands == 1, "Marshall Islands", 
-                                if_else(Liberia == 1, "Liberia", 
-                                if_else(Malta == 1, "Malta", 
-                                if_else(Hong.Kong..China == 1, "Hong Kong, China", 
-                                if_else(Singapore == 1, "Singapore", 
-                                if_else(Others.Flag == 1, "Others Flag", "With two flags"))))))))
+dat.bal.cleaned = dat.bal |> 
+                  mutate(Price = (10^SPLog)/1000000) |>
+                  mutate(OriginCountry = 
+                        if_else(Japan == 1,"Japan", 
+                        if_else(China..People.s.Republic.Of == 1, "China, People's Republic Of", 
+                        if_else(Philippines == 1, "Philippines",
+                        if_else(Korea..South == 1, "Korea, South", "Other Countries Build"))))) |>
+                  mutate(Manufacturer = 
+                        if_else(Caterpillar == 1,"Caterpillar", 
+                        if_else(MAN.B.W == 1, "MAN-B&W",                               if_else(Wartsila == 1, "Wartsila", "Mitsubishi")))) |>
+                  mutate(PI.club = 
+                        if_else(Japan.P.I.Club == 1, "Japan P&I Club", 
+                        if_else(Gard == 1, "Gard",                              if_else(West.of.England == 1, "West of England", 
+                        if_else(North.of.England == 1, "North of England", 
+                        if_else(UK.P.I == 1, "UK P&I", 
+                        if_else(Britannia.P.I == 1, "Britannia P&I", 
+                        if_else(London.P.I.Club == 1, "London P&I Club", 
+                        if_else(Skuld == 1, "Skuld", 
+                        if_else(Steamship.Mutual == 1, "Steamship Mutual", 
+                        if_else(Others == 1, "Others", "Unknown"))))))))))) |>
+                  mutate(Class = 
+                        if_else(Nippon.Kaiji.Kyokai..IACS. == 1,"Nippon Kaiji Kyokai (IACS)", 
+                        if_else(Lloyd.s.Register == 1, "Lloyd's Register", 
+                        if_else(Bureau.Veritas..IACS. == 1, "Bureau Veritas (IACS)", 
+                        if_else(Det.Norske.Veritas..IACS. == 1, "Det Norske Veritas (IACS)", 
+                        if_else(American.Bureau.of.Shipping..IACS. == 1, "American Bureau of Shipping (IACS)", 
+                        if_else(Others.Class == 1, "Others Class", 
+                        if_else(With.Two.Classes == 1, "With Two Classes", "Disclassed")))))))) |>
+                  mutate(FlagState = 
+                        if_else(Panama == 1, "Panama", 
+                        if_else(Marshall.Islands == 1, "Marshall Islands", 
+                        if_else(Liberia == 1, "Liberia", 
+                        if_else(Malta == 1, "Malta", 
+                        if_else(Hong.Kong..China == 1, "Hong Kong, China", 
+                        if_else(Singapore == 1, "Singapore", 
+                        if_else(Others.Flag == 1, "Others Flag", "With two flags"))))))))
 ```
 
 
@@ -434,7 +437,7 @@ bal.summary <- dat.bal.cleaned |> filter(!is.na(Price)) |>
 ```
 ```{r}
 #| label: tbl-nsum-viruses
-#| tbl-cap: "Viruses Within Nucleus."
+#| tbl-cap: "Ship Prices (millions)."
 #| tbl-align: "center"
 #| echo: false
 bal.summary |>

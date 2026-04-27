@@ -346,7 +346,7 @@ window.Quarto = {
 <p>Go to the website and download the source data <a href="https://www.nature.com/articles/s41467-025-68063-y#Sec30">https://www.nature.com/articles/s41467-025-68063-y#Sec30</a>.</p>
 <p>Describe the process – do not leave out any steps – for how you can load the data for Figure 3b from the manuscript into <code>R</code>.</p>
 <p><strong>Hint</strong>: You can use packages like <code>readxl</code> <span class="citation" data-cites="readxl">(<a href="#ref-readxl" role="doc-biblioref">Wickham and Bryan 2025</a>)</span> but you will find it substantially easier to open the <code>.xls</code> file using your computer’s spreadsheet software and create a new <code>.csv</code> file with the data you need.</p>
-<p><strong>Solutions:</strong> I removed the top two headers of the data, then combined the data into two columns so that the data coould be rectangular by pasting the THP1 entries underneath the primary entries. Then i saved it as a csv within the same dictionary as this file so that i can access it and read it into a variable.</p>
+<p><strong>Solutions:</strong> I removed the top two headers of the data, then combined the data into two columns so that the data could be rectangular by pasting the THP1 entries underneath the primary entries. Then i saved it as a csv within the same dictionary as this file so that i can access it and read it into a variable.</p>
 <p></p>
 <div class="cell">
 <details class="code-fold">
@@ -365,7 +365,8 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg <span class="sc">|&gt;</span> <span class="fu">separate</span>(sample, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"SampleType"</span>, <span class="st">"CellType"</span>, <span class="st">"Treatment"</span>), <span class="at">sep =</span> <span class="st">"_"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>       <span class="fu">separate</span>(sample, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"SampleType"</span>, <span class="st">"CellType"</span>, <span class="st">"Treatment"</span>), <span class="at">sep =</span> <span class="st">"_"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -379,7 +380,8 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg.cleaned <span class="sc">|&gt;</span> <span class="fu">filter</span>(Treatment <span class="sc">==</span> <span class="st">"12hpi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg.cleaned <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>        <span class="fu">filter</span>(Treatment <span class="sc">==</span> <span class="st">"12hpi"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -393,7 +395,8 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg.cleaned <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">CellType =</span> <span class="fu">if_else</span>(CellType <span class="sc">==</span> <span class="st">"MDM"</span>, <span class="st">"mac"</span>, CellType))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg.cleaned <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>        <span class="fu">mutate</span>(<span class="at">CellType =</span> <span class="fu">if_else</span>(CellType <span class="sc">==</span> <span class="st">"MDM"</span>, <span class="st">"mac"</span>, CellType))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -408,7 +411,8 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg.cleaned <span class="sc">|&gt;</span> <span class="fu">filter</span>(CellType <span class="sc">==</span> <span class="st">"mac"</span> <span class="sc">|</span> CellType <span class="sc">==</span> <span class="st">"mono"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg.cleaned <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>        <span class="fu">filter</span>(CellType <span class="sc">==</span> <span class="st">"mac"</span> <span class="sc">|</span> CellType <span class="sc">==</span> <span class="st">"mono"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -423,9 +427,9 @@ window.Quarto = {
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg.cleaned <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">mutate</span>(<span class="at">CellType =</span> <span class="fu">if_else</span>(CellType <span class="sc">==</span> <span class="st">"mac"</span>, <span class="st">"Macrophages"</span>, <span class="st">"Monophages"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">mutate</span>(<span class="at">Treatment =</span> <span class="st">"12 Hours Post-Infection"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">mutate</span>(<span class="at">SampleType =</span> <span class="fu">if_else</span>(SampleType <span class="sc">==</span> <span class="st">"primary"</span>, <span class="st">"Healthy Donor"</span>, <span class="st">"THP-1"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a href="#cb6-2"></a>        <span class="fu">mutate</span>(<span class="at">CellType =</span> <span class="fu">if_else</span>(CellType <span class="sc">==</span> <span class="st">"mac"</span>, <span class="st">"Macrophages"</span>, <span class="st">"Monocytes"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>        <span class="fu">mutate</span>(<span class="at">Treatment =</span> <span class="st">"12 Hours Post-Infection"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>        <span class="fu">mutate</span>(<span class="at">SampleType =</span> <span class="fu">if_else</span>(SampleType <span class="sc">==</span> <span class="st">"primary"</span>, <span class="st">"Healthy Donor"</span>, <span class="st">"THP-1"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -440,13 +444,13 @@ window.Quarto = {
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>dat.kitsburg.cleaned <span class="ot">=</span> dat.kitsburg <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">separate</span>(sample, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"SampleType"</span>, <span class="st">"CellType"</span>, <span class="st">"Treatment"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">filter</span>(Treatment <span class="sc">==</span> <span class="st">"12hpi"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">mutate</span>(<span class="at">CellType =</span> <span class="fu">if_else</span>(CellType <span class="sc">==</span> <span class="st">"MDM"</span>, <span class="st">"mac"</span>, CellType)) <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">filter</span>(CellType <span class="sc">==</span> <span class="st">"mac"</span> <span class="sc">|</span> CellType <span class="sc">==</span> <span class="st">"mono"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">mutate</span>(<span class="at">CellType =</span> <span class="fu">if_else</span>(CellType <span class="sc">==</span> <span class="st">"mac"</span>, <span class="st">"Macrophages"</span>, <span class="st">"Monophages"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">mutate</span>(<span class="at">Treatment =</span> <span class="st">"12 Hours Post-Infection"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a>  <span class="fu">mutate</span>(<span class="at">SampleType =</span> <span class="fu">if_else</span>(SampleType <span class="sc">==</span> <span class="st">"primary"</span>, <span class="st">"Healthy Donor"</span>, <span class="st">"THP-1"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-2"><a href="#cb7-2"></a>        <span class="fu">separate</span>(sample, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"SampleType"</span>, <span class="st">"CellType"</span>, <span class="st">"Treatment"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>        <span class="fu">filter</span>(Treatment <span class="sc">==</span> <span class="st">"12hpi"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>        <span class="fu">mutate</span>(<span class="at">CellType =</span> <span class="fu">if_else</span>(CellType <span class="sc">==</span> <span class="st">"MDM"</span>, <span class="st">"mac"</span>, CellType)) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>        <span class="fu">filter</span>(CellType <span class="sc">==</span> <span class="st">"mac"</span> <span class="sc">|</span> CellType <span class="sc">==</span> <span class="st">"mono"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>        <span class="fu">mutate</span>(<span class="at">CellType =</span> <span class="fu">if_else</span>(CellType <span class="sc">==</span> <span class="st">"mac"</span>, <span class="st">"Macrophages"</span>, <span class="st">"Monocytes"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>        <span class="fu">mutate</span>(<span class="at">Treatment =</span> <span class="st">"12 Hours Post-Infection"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>        <span class="fu">mutate</span>(<span class="at">SampleType =</span> <span class="fu">if_else</span>(SampleType <span class="sc">==</span> <span class="st">"primary"</span>, <span class="st">"Healthy Donor"</span>, <span class="st">"THP-1"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -530,7 +534,7 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td style="text-align: left;">Healthy Donor</td>
-<td style="text-align: left;">Monophages</td>
+<td style="text-align: left;">Monocytes</td>
 <td style="text-align: right;">87</td>
 <td style="text-align: right;">0.01</td>
 <td style="text-align: right;">0.11</td>
@@ -548,7 +552,7 @@ window.Quarto = {
 </tr>
 <tr class="even">
 <td style="text-align: left;">THP-1</td>
-<td style="text-align: left;">Monophages</td>
+<td style="text-align: left;">Monocytes</td>
 <td style="text-align: right;">112</td>
 <td style="text-align: right;">0.04</td>
 <td style="text-align: right;">0.25</td>
@@ -613,10 +617,10 @@ window.Quarto = {
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>dat.bal.cleaned <span class="ot">=</span> dat.bal.cleaned <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">OriginCountry =</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>                                <span class="fu">if_else</span>(Japan <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Japan"</span>, </span>
-<span id="cb12-3"><a href="#cb12-3"></a>                                <span class="fu">if_else</span>(China..People.s.Republic.Of <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"China, People's Republic Of"</span>, </span>
-<span id="cb12-4"><a href="#cb12-4"></a>                                <span class="fu">if_else</span>(Philippines <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Philippines"</span>,</span>
-<span id="cb12-5"><a href="#cb12-5"></a>                                <span class="fu">if_else</span>(Korea..South <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Korea, South"</span>, <span class="st">"Other Countries Build"</span>)))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-2"><a href="#cb12-2"></a>                      <span class="fu">if_else</span>(Japan <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Japan"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3"></a>                      <span class="fu">if_else</span>(China..People.s.Republic.Of <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"China, People's Republic Of"</span>, </span>
+<span id="cb12-4"><a href="#cb12-4"></a>                      <span class="fu">if_else</span>(Philippines <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Philippines"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5"></a>                      <span class="fu">if_else</span>(Korea..South <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Korea, South"</span>, <span class="st">"Other Countries Build"</span>)))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -674,13 +678,13 @@ window.Quarto = {
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>dat.bal.cleaned <span class="ot">=</span> dat.bal.cleaned <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Class =</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>                                <span class="fu">if_else</span>(Nippon.Kaiji.Kyokai..IACS. <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Nippon Kaiji Kyokai (IACS)"</span>, </span>
-<span id="cb15-3"><a href="#cb15-3"></a>                                <span class="fu">if_else</span>(Lloyd.s.Register <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Lloyd's Register"</span>, </span>
-<span id="cb15-4"><a href="#cb15-4"></a>                                <span class="fu">if_else</span>(Bureau.Veritas..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Bureau Veritas (IACS)"</span>, </span>
-<span id="cb15-5"><a href="#cb15-5"></a>                                <span class="fu">if_else</span>(Det.Norske.Veritas..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Det Norske Veritas (IACS)"</span>, </span>
-<span id="cb15-6"><a href="#cb15-6"></a>                                <span class="fu">if_else</span>(American.Bureau.of.Shipping..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"American Bureau of Shippin(IACS)"</span>, </span>
-<span id="cb15-7"><a href="#cb15-7"></a>                                <span class="fu">if_else</span>(Others.Class <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Others Class"</span>, </span>
-<span id="cb15-8"><a href="#cb15-8"></a>                                <span class="fu">if_else</span>(With.Two.Classes <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"With Two Classes"</span>, <span class="st">"Disclassed"</span>))))))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb15-2"><a href="#cb15-2"></a>                        <span class="fu">if_else</span>(Nippon.Kaiji.Kyokai..IACS. <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Nippon Kaiji Kyokai (IACS)"</span>, </span>
+<span id="cb15-3"><a href="#cb15-3"></a>                        <span class="fu">if_else</span>(Lloyd.s.Register <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Lloyd's Register"</span>, </span>
+<span id="cb15-4"><a href="#cb15-4"></a>                        <span class="fu">if_else</span>(Bureau.Veritas..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Bureau Veritas (IACS)"</span>, </span>
+<span id="cb15-5"><a href="#cb15-5"></a>                        <span class="fu">if_else</span>(Det.Norske.Veritas..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Det Norske Veritas (IACS)"</span>, </span>
+<span id="cb15-6"><a href="#cb15-6"></a>                        <span class="fu">if_else</span>(American.Bureau.of.Shipping..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"American Bureau of Shippin(IACS)"</span>, </span>
+<span id="cb15-7"><a href="#cb15-7"></a>                        <span class="fu">if_else</span>(Others.Class <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Others Class"</span>, </span>
+<span id="cb15-8"><a href="#cb15-8"></a>                        <span class="fu">if_else</span>(With.Two.Classes <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"With Two Classes"</span>, <span class="st">"Disclassed"</span>))))))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -716,43 +720,42 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>dat.bal.cleaned <span class="ot">=</span> dat.bal <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">Price =</span> (<span class="dv">10</span><span class="sc">^</span>SPLog)<span class="sc">/</span><span class="dv">1000000</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>                             <span class="fu">mutate</span>(<span class="at">OriginCountry =</span> </span>
-<span id="cb17-3"><a href="#cb17-3"></a>                                <span class="fu">if_else</span>(Japan <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Japan"</span>, </span>
-<span id="cb17-4"><a href="#cb17-4"></a>                                <span class="fu">if_else</span>(China..People.s.Republic.Of <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"China, People's Republic Of"</span>, </span>
-<span id="cb17-5"><a href="#cb17-5"></a>                                <span class="fu">if_else</span>(Philippines <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Philippines"</span>,</span>
-<span id="cb17-6"><a href="#cb17-6"></a>                                <span class="fu">if_else</span>(Korea..South <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Korea, South"</span>, <span class="st">"Other Countries Build"</span>))))) <span class="sc">|&gt;</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a>                            <span class="fu">mutate</span>(<span class="at">Manufacturer =</span> </span>
-<span id="cb17-8"><a href="#cb17-8"></a>                                <span class="fu">if_else</span>(Caterpillar <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Caterpillar"</span>, </span>
-<span id="cb17-9"><a href="#cb17-9"></a>                                <span class="fu">if_else</span>(MAN.B.W <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"MAN-B&amp;W"</span>, </span>
-<span id="cb17-10"><a href="#cb17-10"></a>                                <span class="fu">if_else</span>(Wartsila <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Wartsila"</span>, <span class="st">"Mitsubishi"</span>)))) <span class="sc">|&gt;</span></span>
-<span id="cb17-11"><a href="#cb17-11"></a>                            <span class="fu">mutate</span>(<span class="at">PI.club =</span> </span>
-<span id="cb17-12"><a href="#cb17-12"></a>                                <span class="fu">if_else</span>(Japan.P.I.Club <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Japan P&amp;I Club"</span>, </span>
-<span id="cb17-13"><a href="#cb17-13"></a>                                <span class="fu">if_else</span>(Gard <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Gard"</span>, </span>
-<span id="cb17-14"><a href="#cb17-14"></a>                                <span class="fu">if_else</span>(West.of.England <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"West of England"</span>, </span>
-<span id="cb17-15"><a href="#cb17-15"></a>                                <span class="fu">if_else</span>(North.of.England <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"North of England"</span>, </span>
-<span id="cb17-16"><a href="#cb17-16"></a>                                <span class="fu">if_else</span>(UK.P.I <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"UK P&amp;I"</span>, </span>
-<span id="cb17-17"><a href="#cb17-17"></a>                                <span class="fu">if_else</span>(Britannia.P.I <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Britannia P&amp;I"</span>, </span>
-<span id="cb17-18"><a href="#cb17-18"></a>                                <span class="fu">if_else</span>(London.P.I.Club <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"London P&amp;I Club"</span>, </span>
-<span id="cb17-19"><a href="#cb17-19"></a>                                <span class="fu">if_else</span>(Skuld <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Skuld"</span>, </span>
-<span id="cb17-20"><a href="#cb17-20"></a>                                <span class="fu">if_else</span>(Steamship.Mutual <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Steamship Mutual"</span>, </span>
-<span id="cb17-21"><a href="#cb17-21"></a>                                <span class="fu">if_else</span>(Others <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Others"</span>, <span class="st">"Unknown"</span>))))))))))) <span class="sc">|&gt;</span></span>
-<span id="cb17-22"><a href="#cb17-22"></a>                            <span class="fu">mutate</span>(<span class="at">Class =</span> </span>
-<span id="cb17-23"><a href="#cb17-23"></a>                                <span class="fu">if_else</span>(Nippon.Kaiji.Kyokai..IACS. <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Nippon Kaiji Kyokai (IACS)"</span>, </span>
-<span id="cb17-24"><a href="#cb17-24"></a>                                <span class="fu">if_else</span>(Lloyd.s.Register <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Lloyd's Register"</span>, </span>
-<span id="cb17-25"><a href="#cb17-25"></a>                                <span class="fu">if_else</span>(Bureau.Veritas..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Bureau Veritas (IACS)"</span>, </span>
-<span id="cb17-26"><a href="#cb17-26"></a>                                <span class="fu">if_else</span>(Det.Norske.Veritas..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Det Norske Veritas (IACS)"</span>, </span>
-<span id="cb17-27"><a href="#cb17-27"></a>                                <span class="fu">if_else</span>(American.Bureau.of.Shipping..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"American Bureau of Shipping (IACS)"</span>, </span>
-<span id="cb17-28"><a href="#cb17-28"></a>                                <span class="fu">if_else</span>(Others.Class <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Others Class"</span>, </span>
-<span id="cb17-29"><a href="#cb17-29"></a>                                <span class="fu">if_else</span>(With.Two.Classes <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"With Two Classes"</span>, <span class="st">"Disclassed"</span>)))))))) <span class="sc">|&gt;</span></span>
-<span id="cb17-30"><a href="#cb17-30"></a>                            <span class="fu">mutate</span>(<span class="at">FlagState =</span> </span>
-<span id="cb17-31"><a href="#cb17-31"></a>                                <span class="fu">if_else</span>(Panama <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Panama"</span>, </span>
-<span id="cb17-32"><a href="#cb17-32"></a>                                <span class="fu">if_else</span>(Marshall.Islands <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Marshall Islands"</span>, </span>
-<span id="cb17-33"><a href="#cb17-33"></a>                                <span class="fu">if_else</span>(Liberia <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Liberia"</span>, </span>
-<span id="cb17-34"><a href="#cb17-34"></a>                                <span class="fu">if_else</span>(Malta <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Malta"</span>, </span>
-<span id="cb17-35"><a href="#cb17-35"></a>                                <span class="fu">if_else</span>(Hong.Kong..China <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Hong Kong, China"</span>, </span>
-<span id="cb17-36"><a href="#cb17-36"></a>                                <span class="fu">if_else</span>(Singapore <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Singapore"</span>, </span>
-<span id="cb17-37"><a href="#cb17-37"></a>                                <span class="fu">if_else</span>(Others.Flag <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Others Flag"</span>, <span class="st">"With two flags"</span>))))))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>dat.bal.cleaned <span class="ot">=</span> dat.bal <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2"></a>                  <span class="fu">mutate</span>(<span class="at">Price =</span> (<span class="dv">10</span><span class="sc">^</span>SPLog)<span class="sc">/</span><span class="dv">1000000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>                  <span class="fu">mutate</span>(<span class="at">OriginCountry =</span> </span>
+<span id="cb17-4"><a href="#cb17-4"></a>                        <span class="fu">if_else</span>(Japan <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Japan"</span>, </span>
+<span id="cb17-5"><a href="#cb17-5"></a>                        <span class="fu">if_else</span>(China..People.s.Republic.Of <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"China, People's Republic Of"</span>, </span>
+<span id="cb17-6"><a href="#cb17-6"></a>                        <span class="fu">if_else</span>(Philippines <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Philippines"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7"></a>                        <span class="fu">if_else</span>(Korea..South <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Korea, South"</span>, <span class="st">"Other Countries Build"</span>))))) <span class="sc">|&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a>                  <span class="fu">mutate</span>(<span class="at">Manufacturer =</span> </span>
+<span id="cb17-9"><a href="#cb17-9"></a>                        <span class="fu">if_else</span>(Caterpillar <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Caterpillar"</span>, </span>
+<span id="cb17-10"><a href="#cb17-10"></a>                        <span class="fu">if_else</span>(MAN.B.W <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"MAN-B&amp;W"</span>,                               <span class="fu">if_else</span>(Wartsila <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Wartsila"</span>, <span class="st">"Mitsubishi"</span>)))) <span class="sc">|&gt;</span></span>
+<span id="cb17-11"><a href="#cb17-11"></a>                  <span class="fu">mutate</span>(<span class="at">PI.club =</span> </span>
+<span id="cb17-12"><a href="#cb17-12"></a>                        <span class="fu">if_else</span>(Japan.P.I.Club <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Japan P&amp;I Club"</span>, </span>
+<span id="cb17-13"><a href="#cb17-13"></a>                        <span class="fu">if_else</span>(Gard <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Gard"</span>,                              <span class="fu">if_else</span>(West.of.England <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"West of England"</span>, </span>
+<span id="cb17-14"><a href="#cb17-14"></a>                        <span class="fu">if_else</span>(North.of.England <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"North of England"</span>, </span>
+<span id="cb17-15"><a href="#cb17-15"></a>                        <span class="fu">if_else</span>(UK.P.I <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"UK P&amp;I"</span>, </span>
+<span id="cb17-16"><a href="#cb17-16"></a>                        <span class="fu">if_else</span>(Britannia.P.I <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Britannia P&amp;I"</span>, </span>
+<span id="cb17-17"><a href="#cb17-17"></a>                        <span class="fu">if_else</span>(London.P.I.Club <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"London P&amp;I Club"</span>, </span>
+<span id="cb17-18"><a href="#cb17-18"></a>                        <span class="fu">if_else</span>(Skuld <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Skuld"</span>, </span>
+<span id="cb17-19"><a href="#cb17-19"></a>                        <span class="fu">if_else</span>(Steamship.Mutual <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Steamship Mutual"</span>, </span>
+<span id="cb17-20"><a href="#cb17-20"></a>                        <span class="fu">if_else</span>(Others <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Others"</span>, <span class="st">"Unknown"</span>))))))))))) <span class="sc">|&gt;</span></span>
+<span id="cb17-21"><a href="#cb17-21"></a>                  <span class="fu">mutate</span>(<span class="at">Class =</span> </span>
+<span id="cb17-22"><a href="#cb17-22"></a>                        <span class="fu">if_else</span>(Nippon.Kaiji.Kyokai..IACS. <span class="sc">==</span> <span class="dv">1</span>,<span class="st">"Nippon Kaiji Kyokai (IACS)"</span>, </span>
+<span id="cb17-23"><a href="#cb17-23"></a>                        <span class="fu">if_else</span>(Lloyd.s.Register <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Lloyd's Register"</span>, </span>
+<span id="cb17-24"><a href="#cb17-24"></a>                        <span class="fu">if_else</span>(Bureau.Veritas..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Bureau Veritas (IACS)"</span>, </span>
+<span id="cb17-25"><a href="#cb17-25"></a>                        <span class="fu">if_else</span>(Det.Norske.Veritas..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Det Norske Veritas (IACS)"</span>, </span>
+<span id="cb17-26"><a href="#cb17-26"></a>                        <span class="fu">if_else</span>(American.Bureau.of.Shipping..IACS. <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"American Bureau of Shipping (IACS)"</span>, </span>
+<span id="cb17-27"><a href="#cb17-27"></a>                        <span class="fu">if_else</span>(Others.Class <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Others Class"</span>, </span>
+<span id="cb17-28"><a href="#cb17-28"></a>                        <span class="fu">if_else</span>(With.Two.Classes <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"With Two Classes"</span>, <span class="st">"Disclassed"</span>)))))))) <span class="sc">|&gt;</span></span>
+<span id="cb17-29"><a href="#cb17-29"></a>                  <span class="fu">mutate</span>(<span class="at">FlagState =</span> </span>
+<span id="cb17-30"><a href="#cb17-30"></a>                        <span class="fu">if_else</span>(Panama <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Panama"</span>, </span>
+<span id="cb17-31"><a href="#cb17-31"></a>                        <span class="fu">if_else</span>(Marshall.Islands <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Marshall Islands"</span>, </span>
+<span id="cb17-32"><a href="#cb17-32"></a>                        <span class="fu">if_else</span>(Liberia <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Liberia"</span>, </span>
+<span id="cb17-33"><a href="#cb17-33"></a>                        <span class="fu">if_else</span>(Malta <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Malta"</span>, </span>
+<span id="cb17-34"><a href="#cb17-34"></a>                        <span class="fu">if_else</span>(Hong.Kong..China <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Hong Kong, China"</span>, </span>
+<span id="cb17-35"><a href="#cb17-35"></a>                        <span class="fu">if_else</span>(Singapore <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Singapore"</span>, </span>
+<span id="cb17-36"><a href="#cb17-36"></a>                        <span class="fu">if_else</span>(Others.Flag <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"Others Flag"</span>, <span class="st">"With two flags"</span>))))))))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p></p>
@@ -827,7 +830,7 @@ window.Quarto = {
 <div id="tbl-nsum-viruses" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-tbl-align="center">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nsum-viruses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Viruses Within Nucleus.
+Table&nbsp;1: Ship Prices (millions).
 </figcaption>
 <div aria-describedby="tbl-nsum-viruses-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
