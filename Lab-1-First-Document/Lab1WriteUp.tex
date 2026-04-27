@@ -293,7 +293,7 @@
 \begin{itemize}
 \tightlist
 \item
-  Recreate this section in your \textbf{Lab1WriteUp.qmd} file.
+  Recreate this section in your \textbf{\texttt{Lab1WriteUp.qmd}} file.
 \end{itemize}
 
 \subsection{Bold, Italics, Underline}\label{bold-italics-underline}
@@ -369,12 +369,12 @@ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}.
 x^2+2x-13=0.
 \end{align*} Using \(a=1,b=2,c=-13,\) we find solutions using the
 quadratic formula. \begin{align*}
-x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a}\\
-&= \frac{-(2) \pm \sqrt{(2)^2-4(1)-13}}{2(1)}\\
-&= \frac{-2 \pm \sqrt{56}}{2}\\
-&= \frac{-2}{2} \pm \frac{\sqrt{56}}{2}\\
-&= \frac{-2}{2} \pm \sqrt{\frac{56}{4}}\\
-&= -1 \pm \sqrt{14}\\
+x &= \frac{-b \pm \sqrt{b^2-4ac}}{2a} \tag{Definition} \\
+&= \frac{-(2) \pm \sqrt{(2)^2-4(1)-13}}{2(1)} \tag{Definition} \\
+&= \frac{-2 \pm \sqrt{56}}{2} \tag{Symplifying} \\
+&= \frac{-2}{2} \pm \frac{\sqrt{56}}{2} \tag{Rewriting} \\
+&= \frac{-2}{2} \pm \sqrt{\frac{56}{4} \tag{Rewriting} }\\
+&= -1 \pm \sqrt{14} \tag{Symplifying} \\
 &= -4.741657 \text{ or } 2.741657
 \end{align*}
 
@@ -388,16 +388,16 @@ and the points (see Figure~\ref{fig-one-quadratic}).
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \NormalTok{dat }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}\AttributeTok{x=}\FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{6}\NormalTok{, }\DecValTok{6}\NormalTok{, }\AttributeTok{length.out=}\DecValTok{1000}\NormalTok{))}\SpecialCharTok{|\textgreater{}}
-\FunctionTok{mutate}\NormalTok{(}\AttributeTok{y =}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{2}\SpecialCharTok{*}\NormalTok{x }\SpecialCharTok{{-}}\DecValTok{13}\NormalTok{)}
+              \FunctionTok{mutate}\NormalTok{(}\AttributeTok{y =}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{2}\SpecialCharTok{*}\NormalTok{x }\SpecialCharTok{{-}}\DecValTok{13}\NormalTok{)}
 
 \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{dat)}\SpecialCharTok{+}
-\FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{x, }\AttributeTok{y=}\NormalTok{y))}\SpecialCharTok{+}
-\FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept=}\DecValTok{0}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.50}\NormalTok{)}\SpecialCharTok{+}
-\FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept=}\DecValTok{0}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.50}\NormalTok{)}\SpecialCharTok{+}
-\FunctionTok{theme\_bw}\NormalTok{()}\SpecialCharTok{+}
-\FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{"x"}\NormalTok{, }\AttributeTok{y=}\StringTok{"y"}\NormalTok{)}\SpecialCharTok{+}
-\FunctionTok{annotate}\NormalTok{(}\StringTok{"point"}\NormalTok{, }\AttributeTok{x=}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{14}\NormalTok{), }\AttributeTok{y=}\DecValTok{0}\NormalTok{, }\AttributeTok{color=}\StringTok{"red"}\NormalTok{)}\SpecialCharTok{+}
-\FunctionTok{annotate}\NormalTok{(}\StringTok{"point"}\NormalTok{, }\AttributeTok{x=}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{+}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{14}\NormalTok{), }\AttributeTok{y=}\DecValTok{0}\NormalTok{, }\AttributeTok{color=}\StringTok{"red"}\NormalTok{)}
+      \FunctionTok{geom\_line}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{x, }\AttributeTok{y=}\NormalTok{y))}\SpecialCharTok{+}
+      \FunctionTok{geom\_hline}\NormalTok{(}\AttributeTok{yintercept=}\DecValTok{0}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.50}\NormalTok{)}\SpecialCharTok{+}
+      \FunctionTok{geom\_vline}\NormalTok{(}\AttributeTok{xintercept=}\DecValTok{0}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.50}\NormalTok{)}\SpecialCharTok{+}
+      \FunctionTok{theme\_bw}\NormalTok{()}\SpecialCharTok{+}
+      \FunctionTok{labs}\NormalTok{(}\AttributeTok{x=}\StringTok{"x"}\NormalTok{, }\AttributeTok{y=}\StringTok{"y"}\NormalTok{)}\SpecialCharTok{+}
+      \FunctionTok{annotate}\NormalTok{(}\StringTok{"point"}\NormalTok{, }\AttributeTok{x=}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{14}\NormalTok{), }\AttributeTok{y=}\DecValTok{0}\NormalTok{, }\AttributeTok{color=}\StringTok{"red"}\NormalTok{)}\SpecialCharTok{+}
+      \FunctionTok{annotate}\NormalTok{(}\StringTok{"point"}\NormalTok{, }\AttributeTok{x=}\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{+}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{14}\NormalTok{), }\AttributeTok{y=}\DecValTok{0}\NormalTok{, }\AttributeTok{color=}\StringTok{"red"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -427,8 +427,8 @@ another between \(x=0\) and \(x=5\).
 \begin{Shaded}
 \begin{Highlighting}[numbers=left,,]
 \FunctionTok{tibble}\NormalTok{(}\AttributeTok{x =} \FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{5}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{{-}}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{14}\NormalTok{), }\DecValTok{0}\NormalTok{, }\SpecialCharTok{{-}}\DecValTok{1}\SpecialCharTok{+}\FunctionTok{sqrt}\NormalTok{(}\DecValTok{14}\NormalTok{), }\DecValTok{5}\NormalTok{)) }\SpecialCharTok{|\textgreater{}}
-\FunctionTok{mutate}\NormalTok{(}\AttributeTok{y =}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{2}\SpecialCharTok{*}\NormalTok{x }\SpecialCharTok{{-}}\DecValTok{13}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}\AttributeTok{digits=}\DecValTok{4}\NormalTok{)}
+      \FunctionTok{mutate}\NormalTok{(}\AttributeTok{y =}\NormalTok{ x}\SpecialCharTok{\^{}}\DecValTok{2} \SpecialCharTok{+} \DecValTok{2}\SpecialCharTok{*}\NormalTok{x }\SpecialCharTok{{-}}\DecValTok{13}\NormalTok{)}\SpecialCharTok{|\textgreater{}}
+\NormalTok{      knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(}\AttributeTok{digits=}\DecValTok{4}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -465,8 +465,8 @@ create Figure~\ref{fig-one-quadratic} and Table~\ref{tbl-points}.
 Additionally, I used the \texttt{knitr} package (Xie 2025) to nicely
 format the table.
 
-Note that you can ask for citations for \textbf{R} packages using the
-\textbf{citation()} function.
+Note that you can ask for citations for \textbf{\texttt{R}} packages
+using the \textbf{\texttt{citation()}} function.
 
 \subsection{Delivery}\label{delivery}
 
