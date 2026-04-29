@@ -68,4 +68,46 @@ library(kableExtra)
 
 
 
-# Starting Tidyverse
+# Study Introduction
+The dataset used in this guide comes from the published study Skeletal Correlates for Body Mass Estimation in Modern and Fossil Flying Birds by Daniel J. Field, Colton Lynner, Cheryl Brown, and Simon A. F. Darroch, published in PLoS One in 2013. Their purpose was to examine how skeletal size relates to body mass in certain birds. They measured various bone lengths in hundreds of birds to determine which bones best predict the species and size of the bird they came from. This type of data is useful because body mass is an important distinguishing trait, and the relationship between mass and bone size can also help scientists estimate the mass of extinct birds whose only remains are skeletons. This guide will explore obtaining data from a published article, cleaning data using the tidyverse package, and plotting the data to identify similarities and differences among different bird species.
+
+## Obtaining Data
+Before we can work with the data to determine important differences between the bird species, we must first collect the data into a readable format.
+
+**Find and Create the CSV:**
+- Find the article at: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0082000
+- Scroll down to "*Supporting Information*" and click on Table S1. This will download a CSV of the data
+- Rename and save the CSV, then move it into the same folder as your project
+
+
+## Starting Tidyverse and Data Cleaning
+Now that we have access to the data in a readable form, we must put it into a dataframe so that we can easily clean and re-organize the data to our liking.
+
+**Start Tidyverse:**
+- Install and load the `tidyverse` package into `R` so that we can access its funcitons
+```{r}
+install.packages("tidyverse")   ## Installs the package (only needed once)
+library(tidyverse)  ## Loads the package (needed everytime we reopen/reload our project)
+```
+
+- Read the CSV file into a tibble dataframe to manipulate later
+```{r}
+dat.Birds = read_csv("Table_S1.csv")   ## read_csv() form the `tidyverse` package makes it a tibble automatically
+```
+
+**Cleaning the Data:**
+- We will rename the columns to not have " "s so that they are easier to call later on
+- Luckily the researchers didn't record bad data with "NA"s in it, but generally we should remove them
+- We will use the `|>` operator to pass the previous item in as the first argument of the next call to save time
+
+```{r}
+dat.Birds = dat.Birds |>                            ## Reset dat.Birds to clean version and pass it through
+            rename_with(~ gsub(" ", ".", .x)) |>    ## Removing all " " and replacing with "."
+            drop_na(Order)              ## checking and removing all NA's
+```
+
+
+
+```{r}
+
+```
