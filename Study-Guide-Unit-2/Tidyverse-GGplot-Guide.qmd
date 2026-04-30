@@ -84,30 +84,61 @@ Before we can work with the data to determine important differences between the 
 Now that we have access to the data in a readable form, we must put it into a dataframe so that we can easily clean and re-organize the data to our liking.
 
 **Start Tidyverse:**
+
 - Install and load the `tidyverse` package into `R` so that we can access its funcitons
+
 ```{r}
-install.packages("tidyverse")   ## Installs the package (only needed once)
-library(tidyverse)  ## Loads the package (needed everytime we reopen/reload our project)
+# install.packages("tidyverse")   ## Installs the package
+library(tidyverse)  ## Loads the package
 ```
 
 - Read the CSV file into a tibble dataframe to manipulate later
+
 ```{r}
-dat.Birds = read_csv("Table_S1.csv")   ## read_csv() form the `tidyverse` package makes it a tibble automatically
+dat.Birds = read_csv("Table_S1.csv")   ## read_csv() makes a tibble
 ```
 
 **Cleaning the Data:**
-- We will rename the columns to not have " "s so that they are easier to call later on
-- Luckily the researchers didn't record bad data with "NA"s in it, but generally we should remove them
+
+- We will rename the columns to not have `" "`s so that they are easier to call later on
+
+- Luckily the researchers didn't record bad data with "`NA`"s in it, but generally we should remove them
+
+- We will remove all other columns that won't be needed for our purposes
+
 - We will use the `|>` operator to pass the previous item in as the first argument of the next call to save time
 
 ```{r}
-dat.Birds = dat.Birds |>                            ## Reset dat.Birds to clean version and pass it through
-            rename_with(~ gsub(" ", ".", .x)) |>    ## Removing all " " and replacing with "."
-            drop_na(Order)              ## checking and removing all NA's
+dat.Birds.cleaned = dat.Birds |>       ## Reset dat.Birds to clean version and pass it through
+            rename_with(~ gsub(" ", ".", .x)) |>    ## Replacing " "  with "."
+            rename(mass_g = 'mass.(g)') |>      ## Making a cleaner name
+            rename(femur_circ = 'femur_circumference.(mm)') |>
+            rename(order = Order) |>
+            select(order, species, sex, femur_circ, mass_g) |>  ## Keeping relevant columns only
+            drop_na()             ## Removing all rows with NA's
 ```
 
 
+## Creating Plots with ggplot2
+Now we will use `ggplot2` to create visualizations of the data to understand their shape and structure. We will need to pull certain variables and pick the correct graph depending on the type of data we use.
 
-```{r}
+**Data Types and Graphs:**
 
-```
+1. Categorical data : Bar plot (geom_bar())
+
+  - total birds observed in each order
+
+2. Quantitative (single variable) : Histogram (geom_histogram())
+
+  - distribution of bird's body mass
+
+3. Quantitative vs Categorical : Boxplot (geom_boxplot())
+
+  - body mass of female vs. male birds
+
+4. Quantitative vs Quantitative : Scatterplot (geom_point())
+
+  - femur size vs. body mass
+
+**Creating Plots:**
+
