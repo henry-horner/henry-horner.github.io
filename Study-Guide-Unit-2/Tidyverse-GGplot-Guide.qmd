@@ -72,15 +72,20 @@ library(kableExtra)
 The dataset used in this guide comes from the published study Skeletal Correlates for Body Mass Estimation in Modern and Fossil Flying Birds by Daniel J. Field, Colton Lynner, Cheryl Brown, and Simon A. F. Darroch, published in PLoS One in 2013. Their purpose was to examine how skeletal size relates to body mass in certain birds. They measured various bone lengths in hundreds of birds to determine which bones best predict the species and size of the bird they came from. This type of data is useful because body mass is an important distinguishing trait, and the relationship between mass and bone size can also help scientists estimate the mass of extinct birds whose only remains are skeletons. This guide will explore obtaining data from a published article, cleaning data using the tidyverse package, and plotting the data to identify similarities and differences among different bird species.
 
 ## Obtaining Data
+
 Before we can work with the data to determine important differences between the bird species, we must first collect the data into a readable format.
 
 **Find and Create the CSV:**
+
 - Find the article at: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0082000
+
 - Scroll down to "*Supporting Information*" and click on Table S1. This will download a CSV of the data
+
 - Rename and save the CSV, then move it into the same folder as your project
 
 
 ## Starting Tidyverse and Data Cleaning
+
 Now that we have access to the data in a readable form, we must put it into a dataframe so that we can easily clean and re-organize the data to our liking.
 
 **Start Tidyverse:**
@@ -114,14 +119,18 @@ dat.Birds.cleaned = dat.Birds |>       ## Reset dat.Birds to clean version and p
             rename(mass_g = 'mass.(g)') |>      ## Making a cleaner name
             rename(femur_circ = 'femur_circumference.(mm)') |>
             rename(order = Order) |>
+            mutate(sex = case_when(
+                          sex == "m" ~ "M",
+                          sex == "f" ~ "F",
+                          TRUE ~ sex)) |>    ## Make the inputs consistant
             select(order, species, sex, femur_circ, mass_g) |>  ## Keeping relevant columns only
             drop_na()             ## Removing all rows with NA's
 ```
 
 
 ## Creating Plots with ggplot2
-Now we will use `ggplot2` to create visualizations of the data to understand their shape and structure. We will need to pull certain variables and pick the correct graph depending on the type of data we use.
 
+Now we will use `ggplot2` to create visualizations of the data to understand their shape and structure. We will need to pull certain variables and pick the correct graph depending on the type of data we use.
 **Data Types and Graphs:**
 
 1. Categorical data : Bar plot (geom_bar())
@@ -142,3 +151,65 @@ Now we will use `ggplot2` to create visualizations of the data to understand the
 
 **Creating Plots:**
 
+We will create one plot for each type listed above:
+
+*1. BAR PLOT:*
+```{r}
+bar = ggplot(dat.Birds.cleaned, aes(x = order)) +
+  geom_bar() +
+  coord_flip() +    ## Use coord_flip() to make the names readable
+  theme_bw() +
+  labs(
+    x = "Order of Bird",
+    y = "Number of Observations",
+    title = "Observed Counts By Bird Order")
+
+bar   ## Call to draw the plot
+```
+
+*2. HISTOGRAM:*
+```{r}
+hist = ggplot(dat.Birds.cleaned, aes(x = mass_g)) +
+  geom_histogram(bins = 15) +
+  scale_x_continuous(breaks = seq(0, 
+  max(dat.Birds.cleaned$mass_g, na.rm = TRUE), by = 750)) +   ## Set the tick marks for the x-axis
+  theme_bw() +
+  labs(
+    x = "Mass of Birds (g)",
+    y = "Number of Observations",
+    title = "Body Mass (g) Counts")
+
+hist
+```
+
+*3. BOX PLOT:*
+```{r}
+box = ggplot(dat.Birds.cleaned, aes(x = sex, y = mass_g)) +
+  geom_boxplot() +
+  theme_bw() +
+  labs(
+    x = "Sex of Bird",
+    y = "Body Mass (g)",
+    title = "Body Mass by Sex")
+
+box
+```
+
+*4. SCATTERPLOT:*
+```{r}
+scatter = ggplot(dat.Birds.cleaned, aes(x = femur_circ, y = mass_g)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_bw() +
+  labs(
+    x = "Femur Circumference (mm)",
+    y = "Body Mass (g)",
+    title = "Relationship Between Bone Size and Body Mass")
+
+scatter
+```
+
+
+# Main Takeaways
+
+This guide uses the `tidyverse` and `ggplot2` packages to import, clean, and visualize real data. We used `tidyverse` to properly read a dataset into a tibble and clean data to create a readable and useable dataframe. We then used different types of plots in `ggplot2`, specifically bar plots, histograms, boxplots, and scatterplots to show categorical and quantitative data in representative ways.
