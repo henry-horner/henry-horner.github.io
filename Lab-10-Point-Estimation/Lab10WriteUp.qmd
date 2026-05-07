@@ -408,4 +408,3 @@ Altham’s Multiplicative Binomial model showed maximum likelihood estimates tha
 The Multiplicative Beta Binomial model adds the variability in leg winning ability compared to the Altham's model. Players with higher estimated Beta means align with the top of the rankings, which confirmes stronger average performance. Larger Beta standard deviations and higher $theta$ values among lower ranked players indicate more inconsistency.
 
 Overall, the modeling supports the standings pf the leader board stronger players consistently win more legs and exhibit more stable performance, while weaker players win fewer legs and display greater variability, showing a clear skill gap across the league.
-x
