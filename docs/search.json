@@ -829,5 +829,55 @@
     "crumbs": [
       "Lab Eight -- Probability"
     ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "",
+    "text": "Tips",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#initial-simulation",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#initial-simulation",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "2.1 Initial Simulation",
+    "text": "2.1 Initial Simulation\nIn this lab, we will explore why we use \\(S_{n-1}^2\\) and not \\(S_n^2\\). To do this, we will generate data from four known distributions:\n\nPoisson\\((\\lambda=2)\\)\nBinomial\\(\\left(n=50, p=\\frac{5-\\sqrt{21}}{10}\\right)\\)\nNormal\\((\\mu=0, \\sigma=\\sqrt{2})\\)\nExponential\\(\\left(\\lambda = \\frac{1}{\\sqrt{2}}\\right).\\)\n\nRemark: Note that I have selected the parameters so that the true variance for all four models is 2.\nFor each distribution, write a loop that completes the following 1000 times. Put set.seed(7272) at the top of your code chunk.\n\nGenerate a sample of size \\(n\\) from the distribution.\nCalculate and save \\(S_{n-1}^2\\) and \\(S_n^2.\\)\n\nStart with \\(n=20\\). Is there evidence that \\(S_{n-1}^2\\) is a better estimator than \\(S_n^2\\)?\nCreate a plot or combination of plots (using patchwork) to show the results across all four distributions. Make sure to create a corresponding table that numerically summarizes the results of the simulation. You should include \\[\\begin{align*}\n\\textrm{Bias} &= \\textrm{Average of Estimates} - \\textrm{True Value}\\\\\n\\textrm{Precision} &= \\frac{1}{\\textrm{Variance of Estimates}}\\\\\n\\textrm{Mean Square Error} &= \\textrm{Bias}^2 + \\textrm{Variance of Estimates}.\n\\end{align*}\\]\nSolution:\n\n\n\n\n\n\nSimulation Summary of Variance Estimators\n\n\nDistribution\nEstimator\nBias\nVariance\nPrecision\nMSE\n\n\n\n\nPoisson\n{n-1}²\n-0.0161\n0.4759\n2.1013\n0.4762\n\n\nPoisson\nn²\n-0.1153\n0.4295\n2.3283\n0.4428\n\n\nBinomial\n{n-1}²\n-0.0354\n0.4652\n2.1496\n0.4665\n\n\nBinomial\nn²\n-0.1336\n0.4198\n2.3821\n0.4376\n\n\nNormal\n{n-1}²\n0.0023\n0.4929\n2.0288\n0.4929\n\n\nNormal\nn²\n-0.0978\n0.4448\n2.2482\n0.4544\n\n\nExponential\n{n-1}²\n-0.0158\n1.4305\n0.6991\n1.4307\n\n\nExponential\nn²\n-0.1150\n1.2910\n0.7746\n1.3042",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#simulation-over-various-sample-sizes",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#simulation-over-various-sample-sizes",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "2.2 Simulation over various sample sizes",
+    "text": "2.2 Simulation over various sample sizes\nConsider the effect of the sample size have on these results. Provide a graphical and numerical summary of what happens as \\(n\\) increases – say \\(n=20\\), \\(n=50\\), \\(n=100\\), and \\(n=500\\). Does the result in your initial simulation hold across samples? Or, do things change as the sample size changes? Ensure to set your randomization seed.\nSolution:\n\n\n\n\n\n\n\n\n\n\n\n\n\nSimulation Results Across Sample Sizes\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nn\nDistribution\nBias (n-1)\nBias (n)\nVar (n-1)\nVar (n)\nPrecision (n-1)\nPrecision (n)\nMSE (n-1)\nMSE (n)\n\n\n\n\n20\nPoisson\n-0.0161\n-0.1153\n0.4759\n0.4295\n2.1013\n2.3283\n0.4762\n0.4428\n\n\n20\nBinomial\n-0.0354\n-0.1336\n0.4652\n0.4198\n2.1498\n2.3821\n0.4664\n0.4376\n\n\n20\nNormal\n0.0023\n-0.0978\n0.4929\n0.4448\n2.0289\n2.2480\n0.4929\n0.4544\n\n\n20\nExponential\n-0.0158\n-0.1150\n1.4305\n1.2910\n0.6991\n0.7746\n1.4307\n1.3042\n\n\n50\nPoisson\n0.0109\n-0.0293\n0.2239\n0.2151\n4.4659\n4.6500\n0.2240\n0.2159\n\n\n50\nBinomial\n0.0026\n-0.0374\n0.1981\n0.1903\n5.0477\n5.2558\n0.1981\n0.1917\n\n\n50\nNormal\n0.0098\n-0.0304\n0.1666\n0.1600\n6.0025\n6.2500\n0.1667\n0.1609\n\n\n50\nExponential\n0.0497\n0.0087\n0.7153\n0.6869\n1.3981\n1.4557\n0.7177\n0.6870\n\n\n100\nPoisson\n0.0091\n-0.0110\n0.1004\n0.0984\n9.9648\n10.1671\n0.1004\n0.0985\n\n\n100\nBinomial\n-0.0279\n-0.0476\n0.0932\n0.0914\n10.7266\n10.9444\n0.0940\n0.0936\n\n\n100\nNormal\n0.0157\n-0.0045\n0.0820\n0.0803\n12.1988\n12.4465\n0.0822\n0.0804\n\n\n100\nExponential\n0.0278\n0.0076\n0.3502\n0.3432\n2.8556\n2.9136\n0.3510\n0.3433\n\n\n500\nPoisson\n0.0015\n-0.0025\n0.0186\n0.0185\n53.8894\n54.1056\n0.0186\n0.0185\n\n\n500\nBinomial\n0.0039\n-0.0001\n0.0184\n0.0183\n54.4446\n54.6630\n0.0184\n0.0183\n\n\n500\nNormal\n0.0045\n0.0005\n0.0171\n0.0171\n58.3935\n58.6278\n0.0171\n0.0171\n\n\n500\nExponential\n-0.0002\n-0.0042\n0.0647\n0.0644\n15.4565\n15.5185\n0.0647\n0.0645",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#simulation",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#simulation",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "2.3 Simulation",
+    "text": "2.3 Simulation\nYou have written code to draw a random sample of various sizes from each distribution, and to calculate and store the calculated estimates. Rework your code to produce a density plot of the \\(s_{n-1}^2\\) and \\(s_{n}^2\\). Do you have a guess about their distribution? Ensure to set your randomization seed.\nSolutution: As the sampling size increases, the distributions appear to show signs of approaching the Normal distribution, and while they are small sample sizes they have a right skew. This could resemble a log-normal distribution since at low sample sizes it shows large right skews. Since the variances of \\((n-1)^2\\) and \\(n^2\\) are so close to each other, it is incredibly hard to distinguish them on the grpahs.",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
+  },
+  {
+    "objectID": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#bootstrap",
+    "href": "Lab-11-Point-Estimation-and-Bootstrapping/Lab11WriteUp.html#bootstrap",
+    "title": "Lab Eleven – Point Estimation and Resampling",
+    "section": "2.4 Bootstrap",
+    "text": "2.4 Bootstrap\nNow, take one sample from each distribution. Instead of drawing a random sample at each iteration, sample with replacement from the one sample. Produce a density plot of the \\(s_{n-1}^2\\) and \\(s_{n}^2\\). Do we get roughly the same information as we do in the full simulation? Try this over several seeds – what do you notice? Ensure to set your randomization seed.\nSolution:* For the most part it is close enough to see similarities between the bootstrapping and the full simulation, showing similar curves. It still shows a general right skew, however across different seeds the distributions can get extremely incorrect and far off from where the full simulation shows.",
+    "crumbs": [
+      "Lab Eleven -- Point Estimation and Resampling"
+    ]
   }
 ]
